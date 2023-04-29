@@ -19,7 +19,9 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3.3.0
-      
+    
+    - uses: openrndr/setup-opengl@v1.1
+
     - name: 🤖 Setup Godot
       uses: chickensoft-games/setup-godot@v1
       with:
@@ -28,7 +30,7 @@ jobs:
     - name: 🛠️ Build ${{ inputs.target_name }} 
       run: |
         mkdir ${{ github.workspace }}/build/
-        godot --path Sick_Day_Delivery --export "${{ inputs.target_name }}" ${{ github.workspace }}/build/${{ inputs.output_path }} -v
+        godot --path Sick_Day_Delivery --export-release "${{ inputs.target_name }}" ${{ github.workspace }}/build/${{ inputs.output_path }} -v
     
     - name: 📦 Pack ${{ inputs.target_name }}
       if: github.event_name == 'release'
