@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy8wae7f4lg5e"]
+
+[ext_resource type="AudioStream" uid="uid://e7gi76px8lc8" path="res://Audio/Boop Boop Noodle Soup.mp3" id="1_wp0ic"]
+
+[node name="audio" type="Node"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("1_wp0ic")
+autoplay = true
+bus = &"Music"
