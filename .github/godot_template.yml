@@ -20,24 +20,23 @@ jobs:
     - name: checkout
       uses: actions/checkout@v3.3.0
       
-    - name: Install Godot
-      uses: paulloz/godot-action@v1.2
+    - name: 🤖 Setup Godot
+      uses: chickensoft-games/setup-godot@v1
       with:
-        version: 4.0.2
-        mono: true
+        version: 4.0.2        
           
-    - name: ${{ inputs.target_name }} Build
+    - name: 🛠️ Build ${{ inputs.target_name }} 
       run: |
         mkdir ${{ github.workspace }}/build/
         godot --path Sick_Day_Delivery --export "${{ inputs.target_name }}" ${{ github.workspace }}/build/${{ inputs.output_path }} -v
     
-    - name: Pack ${{ inputs.target_name }}
+    - name: 📦 Pack ${{ inputs.target_name }}
       if: github.event_name == 'release'
       run: |-
         cd ${{ github.workspace }}/build
         zip -r ${{ env.output_file }} .
 
-    - name: Upload ${{ inputs.target_name }} to Release ${{ github.ref_name }}
+    - name: ⬆️ Upload ${{ inputs.target_name }} to Release ${{ github.ref_name }}
       if: github.event_name == 'release'
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
