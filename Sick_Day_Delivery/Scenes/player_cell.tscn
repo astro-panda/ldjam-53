@@ -1,17 +1,31 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://cvpq0di0nimsq"]
 
 [ext_resource type="Script" path="res://Scripts/player_cell.gd" id="1_aui7q"]
-[ext_resource type="Texture2D" uid="uid://d1spj261c4q8f" path="res://Sprites/Pill_Placeholder.png" id="2_sk33n"]
+[ext_resource type="Texture2D" uid="uid://bgfxom1a4pd4b" path="res://Sprites/Pill_PlaceholderOpen.png" id="2_cb6xu"]
+[ext_resource type="Texture2D" uid="uid://dpsrjkbs785cv" path="res://Sprites/Pill_PlaceholderClosing.png" id="3_b0xxo"]
+[ext_resource type="Texture2D" uid="uid://dpxwmtk4ldmci" path="res://Sprites/Pill_PlaceholderBlink.png" id="4_h4bqs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lf3au"]
 animations = [{
 "frames": [{
+"duration": 15.0,
+"texture": ExtResource("2_cb6xu")
+}, {
+"duration": 0.75,
+"texture": ExtResource("3_b0xxo")
+}, {
 "duration": 1.0,
-"texture": ExtResource("2_sk33n")
+"texture": ExtResource("4_h4bqs")
+}, {
+"duration": 0.75,
+"texture": ExtResource("3_b0xxo")
+}, {
+"duration": 15.0,
+"texture": ExtResource("2_cb6xu")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="PlayerCell" type="CharacterBody2D"]
@@ -19,6 +33,8 @@ position = Vector2(525, 337)
 script = ExtResource("1_aui7q")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -2)
 sprite_frames = SubResource("SpriteFrames_lf3au")
+frame = 4
+frame_progress = 0.895432
