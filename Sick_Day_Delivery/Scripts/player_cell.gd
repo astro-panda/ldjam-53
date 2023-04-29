@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var max_speed := 700.0
 @export var rotation_speed := 250.0
 
+func _ready():
+	$PlayerAnimation.play()
+
 
 func _physics_process(delta):
 	var input_vector := Vector2(0, Input.get_axis("move_forward", "move_backward"))
