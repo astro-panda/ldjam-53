@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1spj261c4q8f"
-path="res://.godot/imported/Pill_Placeholder.png-2348ef896afb115f0b68f963a39fde36.ctex"
+path="res://.godot/imported/Pill_Placeholder.png-0963f08d1ba037b2d64968a43e8202a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pill_Placeholder.png"
-dest_files=["res://.godot/imported/Pill_Placeholder.png-2348ef896afb115f0b68f963a39fde36.ctex"]
+source_file="res://Placeholder Art/Pill_Placeholder.png"
+dest_files=["res://.godot/imported/Pill_Placeholder.png-0963f08d1ba037b2d64968a43e8202a1.ctex"]
 
 [params]
 

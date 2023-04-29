@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal cure
+
 @export var acceleration := 20.0
 @export var max_speed := 700.0
 @export var rotation_speed := 250.0
@@ -30,3 +32,7 @@ func _physics_process(delta):
 		global_position.x = screen_size.x
 	elif global_position.x > screen_size.x:
 		global_position.x = 0	
+		
+func _ready():
+	$PlayerAnimation.play()
+	
