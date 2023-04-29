@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5dwoy7cbw6sp"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://Scripts/player_cell.gd" id="1_aui7q"]
-[ext_resource type="Texture2D" uid="uid://d1spj261c4q8f" path="res://Pill_Placeholder.png" id="2_sk33n"]
+[ext_resource type="Texture2D" uid="uid://d1spj261c4q8f" path="res://Sprites/Pill_Placeholder.png" id="2_sk33n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lf3au"]
 animations = [{

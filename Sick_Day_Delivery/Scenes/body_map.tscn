@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhh5dmfulsc0f"]
+
+[ext_resource type="Texture2D" uid="uid://jyf1mlttcew6" path="res://Sprites/PSD Body/Thicc Arteries Boi.png" id="1_elnul"]
+
+[node name="Body Map" type="Node2D"]
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_elnul")
