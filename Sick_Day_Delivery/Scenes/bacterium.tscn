@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bshn0kdmpqbnj"]
+
+[ext_resource type="Script" path="res://Scripts/Bacterium.gd" id="1_buof0"]
+[ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="2_t8pqe"]
+[ext_resource type="Texture2D" uid="uid://dy6wv6icnbxex" path="res://Sprites/BacteriumPlaceholderClosing.png" id="3_tsrh2"]
+[ext_resource type="Texture2D" uid="uid://dkj22ftiqb28p" path="res://Sprites/BacteriumPlaceholderBlink.png" id="4_iwx0g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_852eu"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("2_t8pqe")
+}, {
+"duration": 0.75,
+"texture": ExtResource("3_tsrh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iwx0g")
+}, {
+"duration": 0.75,
+"texture": ExtResource("3_tsrh2")
+}, {
+"duration": 15.0,
+"texture": ExtResource("2_t8pqe")
+}],
+"loop": true,
+"name": &"Blink",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uu0s0"]
+radius = 60.1332
+
+[node name="Bacterium" type="Area2D"]
+position = Vector2(587, 326)
+script = ExtResource("1_buof0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_852eu")
+animation = &"Blink"
+frame_progress = 0.0375481
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 16)
+shape = SubResource("CircleShape2D_uu0s0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
