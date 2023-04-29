@@ -1,0 +1,45 @@
+on:
+  workflow_call:
+    inputs:
+      output_path:
+        type: string
+        default: ''
+        required: true
+      target_name:
+        type: string
+        default: ''
+        required: true      
+
+jobs:
+  default:
+    name: ${{ inputs.target_name }}
+    runs-on: ubuntu-latest
+    env:
+      output_file: ${{ inputs.output_path }}_${{ github.ref_name }}.zip
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3.3.0
+      
+    - name: 🤖 Setup Godot
+      uses: chickensoft-games/setup-godot@v1
+      with:
+        version: 4.0.2        
+          
+    - name: 🛠️ Build ${{ inputs.target_name }} 
+      run: |
+        mkdir ${{ github.workspace }}/build/
+        godot --path Sick_Day_Delivery --export "${{ inputs.target_name }}" ${{ github.workspace }}/build/${{ inputs.output_path }} -v
+    
+    - name: 📦 Pack ${{ inputs.target_name }}
+      if: github.event_name == 'release'
+      run: |-
+        cd ${{ github.workspace }}/build
+        zip -r ${{ env.output_file }} .
+
+    - name: ⬆️ Upload ${{ inputs.target_name }} to Release ${{ github.ref_name }}
+      if: github.event_name == 'release'
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |-
+        ls
+        gh release upload ${{ github.ref_name }} ${{ github.workspace }}/build/${{ env.output_file }}
