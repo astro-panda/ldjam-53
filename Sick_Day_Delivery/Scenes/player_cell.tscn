@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvpq0di0nimsq"]
+[gd_scene load_steps=7 format=3 uid="uid://cvpq0di0nimsq"]
 
 [ext_resource type="Script" path="res://Scripts/player_cell.gd" id="1_aui7q"]
 [ext_resource type="Texture2D" uid="uid://bgfxom1a4pd4b" path="res://Sprites/Pill_PlaceholderOpen.png" id="2_cb6xu"]
@@ -28,13 +28,19 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2k2cv"]
+radius = 29.0
+height = 120.0
+
 [node name="PlayerCell" type="CharacterBody2D"]
-position = Vector2(525, 337)
+position = Vector2(389, 444)
 script = ExtResource("1_aui7q")
 metadata/_edit_group_ = true
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -2)
 sprite_frames = SubResource("SpriteFrames_lf3au")
 frame = 4
 frame_progress = 0.895432
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2k2cv")
