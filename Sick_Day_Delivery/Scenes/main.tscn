@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4xi3mlkhu4ow"]
+[gd_scene load_steps=4 format=3 uid="uid://b4xi3mlkhu4ow"]
 
 [ext_resource type="PackedScene" uid="uid://bhh5dmfulsc0f" path="res://Scenes/body_map.tscn" id="1_6xrru"]
+[ext_resource type="PackedScene" uid="uid://cvpq0di0nimsq" path="res://Scenes/player_cell.tscn" id="2_dynj6"]
+[ext_resource type="PackedScene" uid="uid://bshn0kdmpqbnj" path="res://Scenes/bacterium.tscn" id="3_vq0pw"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Body Map" parent="." instance=ExtResource("1_6xrru")]
+
+[node name="PlayerCell" parent="." instance=ExtResource("2_dynj6")]
+
+[node name="Bacterium" parent="." instance=ExtResource("3_vq0pw")]
+position = Vector2(919, 161)
