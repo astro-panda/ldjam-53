@@ -27,7 +27,7 @@ jobs:
       - name: Build Godot for Web
         run: |
           mkdir ${{ github.workspace }}/build/
-          godot --path Sick_Day_Delivery --export "Web" ${{ github.workspace }}/build/index.html -v
+          godot --path Sick_Day_Delivery --export-release "Web" ${{ github.workspace }}/build/index.html -v
 
       - name: Build And Deploy
         id: builddeploy
