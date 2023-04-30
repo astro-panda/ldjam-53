@@ -23,6 +23,9 @@ position = Vector2(1497, 1216)
 scale = Vector2(0.15, 0.15)
 motion_mode = 0
 wall_min_slide_angle = 0.00872665
+[node name="PlayerCell" parent="." instance=ExtResource("2_dynj6")]
+position = Vector2(1497, 1216)
+scale = Vector2(0.15, 0.15)
 position = Vector2(220, 71)
 scale = Vector2(0.36, 0.36)
 
