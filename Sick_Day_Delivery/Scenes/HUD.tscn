@@ -1,25 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://by2kd0e26letn"]
+[gd_scene load_steps=7 format=3 uid="uid://by2kd0e26letn"]
 
 [ext_resource type="Script" path="res://Scripts/TimeAlive.gd" id="1_if4uy"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_qxxad"]
+[ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="3_oudr5"]
+[ext_resource type="Texture2D" uid="uid://dy6wv6icnbxex" path="res://Sprites/BacteriumPlaceholderClosing.png" id="4_11abf"]
+[ext_resource type="Texture2D" uid="uid://dkj22ftiqb28p" path="res://Sprites/BacteriumPlaceholderBlink.png" id="5_lq1d6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khb12"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("3_oudr5")
+}, {
+"duration": 0.75,
+"texture": ExtResource("4_11abf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lq1d6")
+}, {
+"duration": 0.75,
+"texture": ExtResource("4_11abf")
+}, {
+"duration": 15.0,
+"texture": ExtResource("3_oudr5")
+}],
+"loop": true,
+"name": &"Blink",
+"speed": 10.0
+}]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_qxxad")
 
-[node name="TimeAlive" type="Label" parent="."]
-anchors_preset = 5
+[node name="EnemyCounter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Count" type="Label" parent="EnemyCounter"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 63.0
+offset_right = 370.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyCounter"]
+position = Vector2(103, 102)
+sprite_frames = SubResource("SpriteFrames_khb12")
+animation = &"Blink"
+
+[node name="Time" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1446.0
+offset_top = 30.0
+offset_right = -1406.0
+offset_bottom = 70.0
+
+[node name="TimeAlive" type="Label" parent="Time"]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 26.0
+anchor_bottom = 0.009
+offset_left = 2302.0
+offset_top = 27.0
+offset_right = 2431.0
+offset_bottom = 117.64
 grow_horizontal = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
 text = "0:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_if4uy")
 
-[node name="Timer" type="Timer" parent="TimeAlive"]
+[node name="Timer" type="Timer" parent="Time/TimeAlive"]
 
-[connection signal="timeout" from="TimeAlive/Timer" to="TimeAlive" method="_on_timer_timeout"]
+[connection signal="timeout" from="Time/TimeAlive/Timer" to="Time/TimeAlive" method="_on_timer_timeout"]

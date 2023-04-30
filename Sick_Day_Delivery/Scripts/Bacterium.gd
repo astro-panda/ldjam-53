@@ -1,5 +1,6 @@
 extends Area2D
 
+signal on_enemy_ded
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,4 +14,5 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	emit_signal("on_enemy_ded")
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4xi3mlkhu4ow"]
+[gd_scene load_steps=8 format=3 uid="uid://b4xi3mlkhu4ow"]
 
 [ext_resource type="PackedScene" uid="uid://bhh5dmfulsc0f" path="res://Scenes/body_map.tscn" id="1_6xrru"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mnr5t"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bshn0kdmpqbnj" path="res://Scenes/bacterium.tscn" id="3_vq0pw"]
 [ext_resource type="PackedScene" uid="uid://by2kd0e26letn" path="res://HUD.tscn" id="5_fiipk"]
 [ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="6_cs0yl"]
+[ext_resource type="PackedScene" uid="uid://dp4x40y3bkvxf" path="res://Scenes/global_state.tscn" id="7_3cwkh"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mnr5t")
@@ -26,3 +27,8 @@ wall_min_slide_angle = 0.00872665
 [node name="Bacterium" parent="." instance=ExtResource("3_vq0pw")]
 position = Vector2(1554, 1073)
 scale = Vector2(0.35, 0.35)
+
+[node name="Global State" parent="." instance=ExtResource("7_3cwkh")]
+
+[connection signal="on_enemy_ded" from="Bacterium" to="Global State" method="report_enemy_destroyed"]
+[connection signal="on_enemies_destroyed_updated" from="Global State" to="HUD" method="display_enemies_destroyed"]
