@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhh5dmfulsc0f" path="res://Scenes/body_map.tscn" id="1_6xrru"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mnr5t"]
 [ext_resource type="PackedScene" uid="uid://cvpq0di0nimsq" path="res://Scenes/player_cell.tscn" id="2_dynj6"]
-[ext_resource type="PackedScene" uid="uid://bshn0kdmpqbnj" path="res://Scenes/bacterium.tscn" id="3_vq0pw"]
+[ext_resource type="PackedScene" uid="uid://bshn0kdmpqbnj" uid="uid://bshn0kdmpqbnj" path="res://Scenes/bacterium.tscn" id="3_vq0pw"]
 [ext_resource type="PackedScene" uid="uid://by2kd0e26letn" path="res://HUD.tscn" id="5_fiipk"]
 [ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="6_cs0yl"]
 
@@ -11,31 +11,20 @@
 script = ExtResource("1_mnr5t")
 
 [node name="Body Map" parent="." instance=ExtResource("1_6xrru")]
+position = Vector2(1444, 2555)
+
+[node name="HUD" parent="." instance=ExtResource("5_fiipk")]
 position = Vector2(1526, 2505)
 
 [node name="HUD" parent="." instance=ExtResource("5_fiipk")]
 
 [node name="PlayerCell" parent="." instance=ExtResource("2_dynj6")]
+position = Vector2(1425, 1209)
+scale = Vector2(0.15, 0.15)
+wall_min_slide_angle = 0.00872665
 position = Vector2(220, 71)
 scale = Vector2(0.36, 0.36)
 
 [node name="Bacterium" parent="." instance=ExtResource("3_vq0pw")]
-position = Vector2(271, 155)
-scale = Vector2(0.32, 0.32)
-
-[node name="HUD" parent="." instance=ExtResource("5_fiipk")]
-
-[node name="audio" parent="." instance=ExtResource("6_cs0yl")]
-
-wall_min_slide_angle = 0.00872665
-
-motion_mode = 0
-
-position = Vector2(1425, 1209)
-scale = Vector2(0.15, 0.15)
-motion_mode = 0
-wall_min_slide_angle = 0.00872665
-
-[node name="Bacterium" parent="." instance=ExtResource("3_vq0pw")]
-position = Vector2(1554, 1073)
+position = Vector2(1489, 1134)
 scale = Vector2(0.35, 0.35)
