@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm82iie4k26u"]
+[gd_scene load_steps=2 format=3 uid="uid://q78nn6ov4tkl"]
 
 [ext_resource type="Script" path="res://Scripts/infection_spawner.gd" id="1_y6sr6"]
 
@@ -6,3 +6,5 @@
 script = ExtResource("1_y6sr6")
 
 [node name="Colonies" type="Node" parent="."]
+
+[connection signal="timeout" from="." to="." method="createColony"]

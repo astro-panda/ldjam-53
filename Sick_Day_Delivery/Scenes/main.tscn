@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b4xi3mlkhu4ow"]
 
-[ext_resource type="PackedScene" uid="uid://bhh5dmfulsc0f" path="res://Scenes/body_map.tscn" id="1_6xrru"]
+[ext_resource type="PackedScene" path="res://Scenes/body_map.tscn" id="1_6xrru"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mnr5t"]
 [ext_resource type="PackedScene" uid="uid://cvpq0di0nimsq" path="res://Scenes/player_cell.tscn" id="2_dynj6"]
 [ext_resource type="PackedScene" uid="uid://bshn0kdmpqbnj" path="res://Scenes/bacterium.tscn" id="3_vq0pw"]

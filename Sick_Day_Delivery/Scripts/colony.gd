@@ -1,11 +1,9 @@
 extends Timer
 
-@export var colony_count := 1
+@export var bacteria_count := 1
 @export_range(0, 20, 2) var spawn_rate: int
 @export_range(0, 1, .025) var spawn_chance: float
-@export var colonyScene: PackedScene
-
-var spawn_positions = [ Vector2(0,0), Vector2(50,50) ]
+@export var bacteriumScene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +14,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func createColony():
-	var colony = colonyScene.instantiate()
-	colony.position = spawn_positions[0]
-	add_child(colony)
+func createBacterium():
+	var bacterium = bacteriumScene.instantiate()
+	bacterium.position = self.position
+	add_child(bacterium)
