@@ -1,6 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 
+out/
 # Godot-specific ignores
 .import/
 export.cfg
