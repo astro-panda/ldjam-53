@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bodh8ytr81wsh"]
+[gd_scene load_steps=3 format=3 uid="uid://cl3gneduvqjdn"]
 
 [ext_resource type="Script" path="res://Scripts/colony.gd" id="1_7606h"]
 [ext_resource type="PackedScene" uid="uid://bshn0kdmpqbnj" path="res://Scenes/bacterium.tscn" id="2_fxxkw"]

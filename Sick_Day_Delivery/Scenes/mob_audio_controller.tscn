@@ -6,7 +6,11 @@
 script = ExtResource("1_873g7")
 
 [node name="ActionAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 10
+bus = &"Enemies"
 
 [node name="BehaviorAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 10
+bus = &"Enemies"
 
 [node name="BehaviorTimer" type="Timer" parent="."]

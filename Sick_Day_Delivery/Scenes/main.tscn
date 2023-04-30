@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4xi3mlkhu4ow"]
+[gd_scene load_steps=10 format=3 uid="uid://b4xi3mlkhu4ow"]
 
-[ext_resource type="PackedScene" path="res://Scenes/body_map.tscn" id="1_6xrru"]
+[ext_resource type="PackedScene" uid="uid://bhh5dmfulsc0f" path="res://Scenes/body_map.tscn" id="1_6xrru"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mnr5t"]
 [ext_resource type="PackedScene" uid="uid://cvpq0di0nimsq" path="res://Scenes/player_cell.tscn" id="2_dynj6"]
 [ext_resource type="PackedScene" uid="uid://bshn0kdmpqbnj" path="res://Scenes/bacterium.tscn" id="3_vq0pw"]
+[ext_resource type="PackedScene" uid="uid://cm82iie4k26u" path="res://Scenes/infection_spawner.tscn" id="6_8dcgl"]
 [ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="6_cs0yl"]
 [ext_resource type="PackedScene" uid="uid://dp4x40y3bkvxf" path="res://Scenes/global_state.tscn" id="7_3cwkh"]
 [ext_resource type="PackedScene" uid="uid://by2kd0e26letn" path="res://Scenes/HUD.tscn" id="7_ui1jt"]
+[ext_resource type="PackedScene" uid="uid://cl3gneduvqjdn" path="res://Scenes/colony.tscn" id="9_iwfvv"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mnr5t")
@@ -30,4 +32,11 @@ scale = Vector2(0.35, 0.35)
 
 [node name="HUD" parent="." instance=ExtResource("7_ui1jt")]
 
+[node name="infection_spawner" parent="." instance=ExtResource("6_8dcgl")]
+colony_count = 3
+spawn_rate = 6
+spawn_chance = 0.225
+colony = ExtResource("9_iwfvv")
+
 [connection signal="on_enemy_ded" from="Bacterium" to="Global State" method="report_enemy_destroyed"]
+[connection signal="on_enemies_destroyed_updated" from="Global State" to="HUD" method="display_enemies_destroyed"]
