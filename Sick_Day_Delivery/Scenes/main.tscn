@@ -25,3 +25,6 @@ scale = Vector2(0.32, 0.32)
 [node name="audio" parent="." instance=ExtResource("6_cs0yl")]
 
 wall_min_slide_angle = 0.00872665
+
+motion_mode = 0
+
