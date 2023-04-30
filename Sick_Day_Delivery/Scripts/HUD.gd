@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,4 +10,7 @@ func _process(delta):
 	pass
 
 func start_timer():
-	$TimeAlive/Timer.start()
+	$Time/TimeAlive/Timer.start()
+	
+func display_enemies_destroyed(total):
+	$EnemyCounter/Count.set_text(str(total))
