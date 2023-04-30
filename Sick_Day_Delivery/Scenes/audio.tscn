@@ -8,6 +8,7 @@
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 process_priority = 10
 stream = ExtResource("1_wp0ic")
+autoplay = true
 bus = &"Music"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]

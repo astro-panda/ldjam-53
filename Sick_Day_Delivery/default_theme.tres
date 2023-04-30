@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dv2a4y6esjmj8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3d5kq"]
+
+[resource]
+Button/fonts/font = null
+Button/styles/hover = SubResource("StyleBoxTexture_3d5kq")
