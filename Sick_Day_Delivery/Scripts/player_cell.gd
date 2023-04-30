@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var acceleration := 20.0
-@export var max_speed := 700.0
+@export var max_speed := 450.0
 @export var rotation_speed := 250.0
 
 func _ready():
