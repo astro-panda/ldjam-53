@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy8wae7f4lg5e"]
+
+[ext_resource type="AudioStream" uid="uid://e7gi76px8lc8" path="res://Audio/Boop Boop Noodle Soup.mp3" id="1_wp0ic"]
+[ext_resource type="AudioStream" uid="uid://dfox4vgcl8rtj" path="res://Audio/Ambient Noise.wav" id="2_ugnk8"]
+
+[node name="audio" type="Node"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("1_wp0ic")
+autoplay = true
+bus = &"Music"
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2_ugnk8")
+volume_db = -8.433
+autoplay = true
+bus = &"Ambience"

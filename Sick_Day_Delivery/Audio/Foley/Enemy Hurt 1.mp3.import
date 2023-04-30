@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c43uubnn7a6lc"
+path="res://.godot/imported/Enemy Hurt 1.mp3-bd811ed5b3704893ea9ea608a3a29f01.mp3str"
+
+[deps]
+
+source_file="res://Audio/Foley/Enemy Hurt 1.mp3"
+dest_files=["res://.godot/imported/Enemy Hurt 1.mp3-bd811ed5b3704893ea9ea608a3a29f01.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
