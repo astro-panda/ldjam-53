@@ -6,13 +6,13 @@
 [node name="audio" type="Node"]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-process_mode = 3
+process_priority = 10
 stream = ExtResource("1_wp0ic")
-autoplay = true
 bus = &"Music"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 process_mode = 3
+process_priority = 20
 stream = ExtResource("2_ugnk8")
 volume_db = -8.433
 autoplay = true
