@@ -1,6 +1,4 @@
-extends Node2D
-
-signal enemy_spawn
+extends Timer
 
 @export var bacteria_count := 1
 @export_range(0, 20, 2) var spawn_rate: int
@@ -18,10 +16,5 @@ func _process(delta):
 
 func createBacterium():
 	var bacterium = bacteriumScene.instantiate()
-	bacterium.position = Vector2.ZERO
+	bacterium.position = self.position
 	add_child(bacterium)
-
-
-func _on_colony_timer_timeout():
-	print_debug("spawn bacterium")
-	createBacterium()
