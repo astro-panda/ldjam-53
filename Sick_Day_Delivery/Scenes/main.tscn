@@ -11,7 +11,7 @@
 script = ExtResource("1_mnr5t")
 
 [node name="Body Map" parent="." instance=ExtResource("1_6xrru")]
-position = Vector2(1444, 2555)
+position = Vector2(1526, 2505)
 
 [node name="HUD" parent="." instance=ExtResource("5_fiipk")]
 position = Vector2(1526, 2505)
@@ -19,12 +19,13 @@ position = Vector2(1526, 2505)
 [node name="HUD" parent="." instance=ExtResource("5_fiipk")]
 
 [node name="PlayerCell" parent="." instance=ExtResource("2_dynj6")]
-position = Vector2(1425, 1209)
+position = Vector2(1497, 1216)
 scale = Vector2(0.15, 0.15)
+motion_mode = 0
 wall_min_slide_angle = 0.00872665
 position = Vector2(220, 71)
 scale = Vector2(0.36, 0.36)
 
 [node name="Bacterium" parent="." instance=ExtResource("3_vq0pw")]
-position = Vector2(1489, 1134)
+position = Vector2(1554, 1073)
 scale = Vector2(0.35, 0.35)
