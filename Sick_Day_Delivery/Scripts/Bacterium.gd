@@ -13,7 +13,7 @@ func _process(delta):
 
 
 
-func _on_body_entered(body):
-	$MobAudioController.act(randi() % 5)
+func _on_body_entered(_body):
+	await $MobAudioController.act(0)
 	emit_signal("on_enemy_ded")
 	queue_free()
