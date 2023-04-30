@@ -29,7 +29,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="HUD2" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_qxxad")
 
 [node name="EnemyCounter" type="Control" parent="."]

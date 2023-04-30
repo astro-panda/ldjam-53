@@ -1,63 +1,119 @@
-[gd_scene format=3 uid="uid://draeoultri5r3"]
+[gd_scene load_steps=10 format=3 uid="uid://draeoultri5r3"]
+
+[ext_resource type="Texture2D" uid="uid://bgfxom1a4pd4b" path="res://Sprites/Pill_PlaceholderOpen.png" id="1_m26p8"]
+[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_uv6ll"]
+[ext_resource type="Texture2D" uid="uid://dpsrjkbs785cv" path="res://Sprites/Pill_PlaceholderClosing.png" id="2_j8852"]
+[ext_resource type="Theme" uid="uid://dv2a4y6esjmj8" path="res://default_theme.tres" id="2_se7hk"]
+[ext_resource type="Texture2D" uid="uid://dpxwmtk4ldmci" path="res://Sprites/Pill_PlaceholderBlink.png" id="3_qxvwk"]
+[ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="5_8lu0s"]
+
+[sub_resource type="Gradient" id="Gradient_t1k70"]
+offsets = PackedFloat32Array(0, 0.0645161, 1)
+colors = PackedColorArray(0, 0.278431, 0.337255, 1, 0, 0.278431, 0.337255, 1, 0, 0.172549, 0.337255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ow06"]
+gradient = SubResource("Gradient_t1k70")
+width = 1920
+height = 1020
+fill_from = Vector2(0.665138, 0.793578)
+fill_to = Vector2(0.458716, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pan22"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("1_m26p8")
+}, {
+"duration": 0.75,
+"texture": ExtResource("2_j8852")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qxvwk")
+}, {
+"duration": 0.75,
+"texture": ExtResource("2_j8852")
+}, {
+"duration": 15.0,
+"texture": ExtResource("1_m26p8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uv6ll")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Background" type="TextureRect" parent="Canvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.994)
+texture = SubResource("GradientTexture2D_1ow06")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
+[node name="Title" type="Label" parent="Canvas"]
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 280.0
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.066
-anchor_right = 1.003
-anchor_bottom = 1.0
-offset_top = 0.231998
-offset_right = 0.543945
-grow_horizontal = 2
-grow_vertical = 2
+scale = Vector2(0.99437, 0.983871)
 theme_override_font_sizes/font_size = 100
 text = "Sick Day 
 Delivery"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="StartButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.391
-anchor_top = 0.566
-anchor_right = 0.604
-anchor_bottom = 0.718
-offset_left = 0.567963
-offset_top = 2.23196
-offset_right = 19.192
-offset_bottom = -0.264038
+[node name="StartButton" type="Button" parent="Canvas"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -65.0
+offset_right = 140.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.01, 1)
+theme = ExtResource("2_se7hk")
 theme_override_font_sizes/font_size = 64
 text = "Start"
 
-[node name="HowToPlay" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.372
-anchor_top = 0.765
-anchor_right = 0.635
-anchor_bottom = 0.927
-offset_left = -0.544006
-offset_top = 0.279968
-offset_right = 0.479919
-offset_bottom = 0.303955
+[node name="HowToPlay" type="Button" parent="Canvas"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 110.0
+offset_right = 140.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_se7hk")
 theme_override_font_sizes/font_size = 64
 text = "Controls"
+
+[node name="Pill" type="AnimatedSprite2D" parent="Canvas"]
+position = Vector2(332, 242)
+rotation = -0.2654
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_pan22")
+frame_progress = 0.98429
+
+[node name="audio" parent="." instance=ExtResource("5_8lu0s")]
+
+[connection signal="pressed" from="Canvas/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Canvas/HowToPlay" to="." method="_on_how_to_play_pressed"]
