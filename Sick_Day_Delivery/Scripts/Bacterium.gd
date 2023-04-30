@@ -14,5 +14,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	$MobAudioController.act(randi() % 5)
 	emit_signal("on_enemy_ded")
 	queue_free()

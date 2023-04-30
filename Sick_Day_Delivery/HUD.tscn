@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://by2kd0e26letn"]
+[gd_scene load_steps=3 format=3 uid="uid://bo0pmlje0v73g"]
 
 [ext_resource type="Script" path="res://Scripts/TimeAlive.gd" id="1_if4uy"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_qxxad"]
