@@ -2,11 +2,22 @@
 
 [ext_resource type="Script" path="res://Scripts/colony.gd" id="1_7606h"]
 [ext_resource type="PackedScene" uid="uid://bshn0kdmpqbnj" path="res://Scenes/bacterium.tscn" id="2_fxxkw"]
+[ext_resource type="Script" path="res://Scripts/ColonyTimer.gd" id="3_pkowl"]
+[ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="4_w31ri"]
 
-[node name="colony" type="Timer"]
+[node name="colony" type="Node2D"]
+position = Vector2(609, 726)
 script = ExtResource("1_7606h")
 bacteriumScene = ExtResource("2_fxxkw")
 
 [node name="Bacteria" type="Node" parent="."]
 
-[connection signal="timeout" from="." to="." method="createBacterium"]
+[node name="ColonyTimer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("3_pkowl")
+
+[node name="ColonySprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_w31ri")
+
+[connection signal="timeout" from="ColonyTimer" to="." method="_on_colony_timer_timeout"]

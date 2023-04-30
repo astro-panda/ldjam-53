@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/infection_spawner.gd" id="1_y6sr6"]
 
 [node name="infection_spawner" type="Timer"]
+autostart = true
 script = ExtResource("1_y6sr6")
 
 [node name="Colonies" type="Node" parent="."]
