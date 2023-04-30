@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm82iie4k26u"]
+
+[ext_resource type="Script" path="res://Scripts/infection_spawner.gd" id="1_y6sr6"]
+[ext_resource type="Script" path="res://Scripts/InfectionTimer.gd" id="2_ym736"]
+
+[node name="infection_spawner" type="Node2D"]
+script = ExtResource("1_y6sr6")
+spawn_rate = 4
+spawn_chance = 0.2
+
+[node name="Colonies" type="Node" parent="."]
+
+[node name="Bacteria" type="Node" parent="."]
+
+[node name="InfectionTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+script = ExtResource("2_ym736")
