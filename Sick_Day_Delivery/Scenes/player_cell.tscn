@@ -33,7 +33,8 @@ radius = 29.0
 height = 120.0
 
 [node name="PlayerCell" type="CharacterBody2D"]
-position = Vector2(389, 444)
+motion_mode = 1
+wall_min_slide_angle = 0.0174533
 script = ExtResource("1_aui7q")
 metadata/_edit_group_ = true
 
@@ -44,3 +45,11 @@ frame_progress = 0.895432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2k2cv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 5000
+position_smoothing_speed = 10.0
