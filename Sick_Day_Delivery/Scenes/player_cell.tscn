@@ -32,7 +32,7 @@ animations = [{
 radius = 29.0
 height = 120.0
 
-[node name="PlayerCell" type="CharacterBody2D"]
+[node name="PlayerCell" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.1, 0.1)
 motion_mode = 1
 wall_min_slide_angle = 0.0174533

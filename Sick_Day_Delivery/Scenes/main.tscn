@@ -35,10 +35,33 @@ colonyScene = ExtResource("8_nndff")
 
 [node name="SpawnPoints" type="Node" parent="infection_spawner"]
 
-[node name="Location2" type="Node2D" parent="infection_spawner/SpawnPoints"]
+[node name="Neck" type="Node2D" parent="infection_spawner/SpawnPoints"]
+position = Vector2(1407, 686)
+
+[node name="Upper_Torso" type="Node2D" parent="infection_spawner/SpawnPoints"]
 position = Vector2(1571, 1134)
 
-[node name="Location1" type="Node2D" parent="infection_spawner/SpawnPoints"]
-position = Vector2(1491, 1089)
+[node name="Left_Elbow" type="Node2D" parent="infection_spawner/SpawnPoints"]
+position = Vector2(2103, 1754)
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_y16aj")]
+[node name="Right_Elbow" type="Node2D" parent="infection_spawner/SpawnPoints"]
+position = Vector2(899, 1705)
+
+[node name="Left_Knee" type="Node2D" parent="infection_spawner/SpawnPoints"]
+position = Vector2(1845, 3826)
+
+[node name="Right_Shin" type="Node2D" parent="infection_spawner/SpawnPoints"]
+position = Vector2(1255, 4166)
+
+[node name="Right_Hip" type="Node2D" parent="infection_spawner/SpawnPoints"]
+position = Vector2(1172, 2645)
+
+[node name="Left_Hip" type="Node2D" parent="infection_spawner/SpawnPoints"]
+position = Vector2(1817, 2649)
+
+[node name="Lower_Torso" type="Node2D" parent="infection_spawner/SpawnPoints"]
+position = Vector2(1510, 1969)
+
+[node name="Mid_Torso" type="Node2D" parent="infection_spawner/SpawnPoints"]
+position = Vector2(1554, 1541)
