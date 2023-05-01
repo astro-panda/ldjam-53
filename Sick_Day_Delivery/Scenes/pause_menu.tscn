@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccvpanj0i8wfv"]
+
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_67kp7"]
+[ext_resource type="PackedScene" path="res://Scenes/quit.tscn" id="2_yw4fl"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_67kp7")
+quit_scene = ExtResource("2_yw4fl")
+metadata/_edit_vertical_guides_ = [960.0]
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.215686, 0.215686, 0.215686, 0.556863)
+
+[node name="Message" type="Label" parent="Canvas"]
+offset_left = 736.0
+offset_top = 344.0
+offset_right = 961.0
+offset_bottom = 435.0
+scale = Vector2(1.99638, 1.99638)
+theme_override_font_sizes/font_size = 64
+text = "Paused"
+
+[node name="Restart" type="Button" parent="Canvas"]
+offset_left = 640.0
+offset_top = 536.0
+offset_right = 936.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 64
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Canvas"]
+offset_left = 984.0
+offset_top = 536.0
+offset_right = 1280.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="Resume" type="Button" parent="Canvas"]
+offset_left = 808.0
+offset_top = 664.0
+offset_right = 1104.0
+offset_bottom = 760.0
+theme_override_font_sizes/font_size = 64
+text = "Resume"
+
+[connection signal="pressed" from="Canvas/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Canvas/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Canvas/Resume" to="." method="_on_resume_pressed"]
