@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=3 uid="uid://bv6ihc3uoglqx"]
+
+[ext_resource type="Texture2D" uid="uid://bgfxom1a4pd4b" path="res://Sprites/Pill_PlaceholderOpen.png" id="3_cf4ay"]
+[ext_resource type="Texture2D" uid="uid://dpsrjkbs785cv" path="res://Sprites/Pill_PlaceholderClosing.png" id="4_2pnik"]
+[ext_resource type="Texture2D" uid="uid://dpxwmtk4ldmci" path="res://Sprites/Pill_PlaceholderBlink.png" id="5_ywjv1"]
+[ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="6_1iv1a"]
+[ext_resource type="Texture2D" uid="uid://dy6wv6icnbxex" path="res://Sprites/BacteriumPlaceholderClosing.png" id="7_lscl0"]
+[ext_resource type="Texture2D" uid="uid://dkj22ftiqb28p" path="res://Sprites/BacteriumPlaceholderBlink.png" id="8_rbh38"]
+[ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="9_7u45b"]
+
+[sub_resource type="Gradient" id="Gradient_t1k70"]
+offsets = PackedFloat32Array(0, 0.0645161, 1)
+colors = PackedColorArray(0, 0.278431, 0.337255, 1, 0, 0.278431, 0.337255, 1, 0, 0.172549, 0.337255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e61b6"]
+gradient = SubResource("Gradient_t1k70")
+width = 1920
+height = 1020
+fill_from = Vector2(0.665138, 0.793578)
+fill_to = Vector2(0.458716, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8yhe5"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("3_cf4ay")
+}, {
+"duration": 0.75,
+"texture": ExtResource("4_2pnik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ywjv1")
+}, {
+"duration": 0.75,
+"texture": ExtResource("4_2pnik")
+}, {
+"duration": 15.0,
+"texture": ExtResource("3_cf4ay")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v4vc4"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("6_1iv1a")
+}, {
+"duration": 0.75,
+"texture": ExtResource("7_lscl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rbh38")
+}, {
+"duration": 0.75,
+"texture": ExtResource("7_lscl0")
+}, {
+"duration": 15.0,
+"texture": ExtResource("6_1iv1a")
+}],
+"loop": true,
+"name": &"Blink",
+"speed": 10.0
+}]
+
+[node name="Quit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Background" type="TextureRect" parent="Canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.994)
+texture = SubResource("GradientTexture2D_e61b6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="Canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.99437, 0.983871)
+theme_override_font_sizes/font_size = 100
+text = "Thank You
+for Playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Pill" type="AnimatedSprite2D" parent="Canvas"]
+position = Vector2(419, 402)
+rotation = -0.2654
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_8yhe5")
+
+[node name="Bacteria" type="AnimatedSprite2D" parent="Canvas"]
+position = Vector2(1527, 738)
+rotation = 1.37666
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_v4vc4")
+animation = &"Blink"
+
+[node name="audio" parent="." instance=ExtResource("9_7u45b")]

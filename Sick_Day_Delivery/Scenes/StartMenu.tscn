@@ -1,18 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://draeoultri5r3"]
+[gd_scene load_steps=15 format=3 uid="uid://draeoultri5r3"]
 
 [ext_resource type="Texture2D" uid="uid://bgfxom1a4pd4b" path="res://Sprites/Pill_PlaceholderOpen.png" id="1_m26p8"]
 [ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_uv6ll"]
 [ext_resource type="Texture2D" uid="uid://dpsrjkbs785cv" path="res://Sprites/Pill_PlaceholderClosing.png" id="2_j8852"]
 [ext_resource type="Theme" uid="uid://dv2a4y6esjmj8" path="res://default_theme.tres" id="2_se7hk"]
+[ext_resource type="PackedScene" path="res://Scenes/quit.tscn" id="3_oy5jp"]
 [ext_resource type="Texture2D" uid="uid://dpxwmtk4ldmci" path="res://Sprites/Pill_PlaceholderBlink.png" id="3_qxvwk"]
 [ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="5_8lu0s"]
+[ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="7_8rbi1"]
+[ext_resource type="Texture2D" uid="uid://dy6wv6icnbxex" path="res://Sprites/BacteriumPlaceholderClosing.png" id="8_0pmck"]
+[ext_resource type="Texture2D" uid="uid://dkj22ftiqb28p" path="res://Sprites/BacteriumPlaceholderBlink.png" id="9_xht2a"]
 
-[sub_resource type="Gradient" id="Gradient_t1k70"]
+[sub_resource type="Gradient" id="Gradient_rydkq"]
 offsets = PackedFloat32Array(0, 0.0645161, 1)
 colors = PackedColorArray(0, 0.278431, 0.337255, 1, 0, 0.278431, 0.337255, 1, 0, 0.172549, 0.337255, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1ow06"]
-gradient = SubResource("Gradient_t1k70")
+gradient = SubResource("Gradient_rydkq")
 width = 1920
 height = 1020
 fill_from = Vector2(0.665138, 0.793578)
@@ -41,10 +45,34 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4hus"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("7_8rbi1")
+}, {
+"duration": 0.75,
+"texture": ExtResource("8_0pmck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xht2a")
+}, {
+"duration": 0.75,
+"texture": ExtResource("8_0pmck")
+}, {
+"duration": 15.0,
+"texture": ExtResource("7_8rbi1")
+}],
+"loop": true,
+"name": &"Blink",
+"speed": 10.0
+}]
+
 [node name="StartMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uv6ll")
+quit_scene = ExtResource("3_oy5jp")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -57,11 +85,15 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.994)
 texture = SubResource("GradientTexture2D_1ow06")
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="Canvas"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 280.0
+offset_left = 5.0
+offset_top = 239.0
+offset_right = 5.0
+offset_bottom = 519.0
 grow_horizontal = 2
 scale = Vector2(0.99437, 0.983871)
 theme_override_font_sizes/font_size = 100
@@ -69,6 +101,7 @@ text = "Sick Day
 Delivery"
 horizontal_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="StartButton" type="Button" parent="Canvas"]
 anchors_preset = 8
@@ -77,15 +110,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -160.0
-offset_top = -65.0
+offset_top = 89.0
 offset_right = 140.0
-offset_bottom = 35.0
+offset_bottom = 189.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.01, 1)
 theme = ExtResource("2_se7hk")
 theme_override_font_sizes/font_size = 64
 text = "Start"
+metadata/_edit_use_anchors_ = true
 
 [node name="HowToPlay" type="Button" parent="Canvas"]
 visible = false
@@ -95,9 +129,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -160.0
-offset_top = 110.0
+offset_top = 264.0
 offset_right = 140.0
-offset_bottom = 210.0
+offset_bottom = 364.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -107,13 +141,31 @@ theme_override_font_sizes/font_size = 64
 text = "Controls"
 
 [node name="Pill" type="AnimatedSprite2D" parent="Canvas"]
-position = Vector2(332, 242)
+position = Vector2(332, 396)
 rotation = -0.2654
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_pan22")
 frame_progress = 0.98429
 
+[node name="Bacteria" type="AnimatedSprite2D" parent="Canvas"]
+position = Vector2(1488, 552)
+rotation = 1.37666
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_l4hus")
+animation = &"Blink"
+
+[node name="X" type="Button" parent="Canvas"]
+offset_left = 1801.0
+offset_right = 1903.0
+offset_bottom = 104.0
+scale = Vector2(1.16092, 1.07235)
+theme_override_font_sizes/font_size = 64
+text = "X"
+flat = true
+metadata/_edit_use_anchors_ = true
+
 [node name="audio" parent="." instance=ExtResource("5_8lu0s")]
 
 [connection signal="pressed" from="Canvas/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Canvas/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="Canvas/X" to="." method="_on_x_pressed"]
