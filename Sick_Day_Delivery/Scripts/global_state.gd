@@ -4,9 +4,11 @@ signal on_enemies_count_updated (total)
 signal on_colony_count_updated (total)
 signal on_enemies_destroyed (total)
 signal on_colonies_destroyed (total)
+signal on_game_over
 
 @export var enemies_destroyed := 0
 @export var colonies_destroyed := 0
+@export var enemies_max := 0
 
 var total_enemies = 0
 var total_colonies = 0
@@ -20,6 +22,9 @@ func report_enemy_destroyed():
 func report_enemy_created():
 	total_enemies += 1
 	emit_signal("on_enemies_count_updated", total_enemies)
+
+	if total_enemies >= enemies_max:
+		emit_signal("on_game_over")
 
 func report_colony_created():
 	total_colonies += 1

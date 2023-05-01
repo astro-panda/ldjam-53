@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Sick_Day_Delivery"
+config/name="Sick Day Delivery"
 run/main_scene="res://Scenes/StartMenu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 boot_splash/bg_color=Color(0.0156863, 0.164706, 0.172549, 1)
@@ -22,6 +22,10 @@ config/icon="res://icon.svg"
 
 driver/mix_rate=48000
 driver/output_latency.web=20
+
+[autoload]
+
+GlobalState="*res://Scenes/global_state.tscn"
 
 [display]
 
