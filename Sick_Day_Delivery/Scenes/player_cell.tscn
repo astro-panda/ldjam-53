@@ -1,34 +1,18 @@
 [gd_scene load_steps=12 format=3 uid="uid://cvpq0di0nimsq"]
 
 [ext_resource type="Script" path="res://Scripts/player_cell.gd" id="1_aui7q"]
+[ext_resource type="PackedScene" uid="uid://csw4jx6ea7tvn" path="res://Scenes/cure.tscn" id="2_4ex16"]
 [ext_resource type="Texture2D" uid="uid://bgfxom1a4pd4b" path="res://Sprites/Pill_PlaceholderOpen.png" id="2_cb6xu"]
-[ext_resource type="Texture2D" uid="uid://d1spj261c4q8f" path="res://Sprites/Pill_Placeholder.png" id="2_juu6w"]
 [ext_resource type="Texture2D" uid="uid://dpsrjkbs785cv" path="res://Sprites/Pill_PlaceholderClosing.png" id="3_b0xxo"]
 [ext_resource type="Texture2D" uid="uid://dpxwmtk4ldmci" path="res://Sprites/Pill_PlaceholderBlink.png" id="4_h4bqs"]
 [ext_resource type="PackedScene" uid="uid://dda8sqvfl2s8l" path="res://Scenes/bacteria_indicator.tscn" id="5_f10cd"]
 [ext_resource type="AudioStream" uid="uid://bg7cmyyv3i0x6" path="res://Audio/Foley/Wall Hit.mp3" id="8_qprtp"]
+[ext_resource type="PackedScene" uid="uid://cf2m861vjf5gc" path="res://Scenes/colony_indicator.tscn" id="9_1fisr"]
 [ext_resource type="AudioStream" uid="uid://gr12g3cxguxq" path="res://Audio/Foley/Shoot.mp3" id="9_t06e5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2k2cv"]
 radius = 40.0
 height = 140.0
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ckoj"]
-lifetime_randomness = 0.5
-particle_flag_disable_z = true
-direction = Vector3(1, 1, 0)
-spread = 180.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 300.0
-initial_velocity_max = 300.0
-angular_velocity_max = 100.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-angle_max = 360.0
-scale_min = 0.02
-scale_max = 0.08
-hue_variation_min = -0.37
-hue_variation_max = 0.24
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lf3au"]
 animations = [{
@@ -58,6 +42,7 @@ scale = Vector2(0.1, 0.1)
 motion_mode = 1
 wall_min_slide_angle = 0.0174533
 script = ExtResource("1_aui7q")
+cureScene = ExtResource("2_4ex16")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -73,16 +58,6 @@ position_smoothing_speed = 10.0
 
 [node name="bacteria_indicator" parent="." instance=ExtResource("5_f10cd")]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_7ckoj")
-texture = ExtResource("2_juu6w")
-one_shot = true
-explosiveness = 1.0
-randomness = 0.75
-visibility_rect = Rect2(0, 0, 0, 0)
-
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lf3au")
 frame = 4
@@ -96,3 +71,6 @@ bus = &"Player"
 stream = ExtResource("8_qprtp")
 max_polyphony = 10
 bus = &"Player"
+
+[node name="colony_indicator" parent="." instance=ExtResource("9_1fisr")]
+position = Vector2(3.90236, -125.79)
