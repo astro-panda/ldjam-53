@@ -9,9 +9,9 @@ func _ready():
 
 
 func _physics_process(delta):
-	var input_vector := Vector2(0, Input.get_axis("move_forward", "move_backward"))
+	var input_vector := Input.get_vector("rotate_right", "rotate_left", "move_forward", "move_backward")
 	
-	velocity += input_vector.rotated(rotation) * acceleration
+	velocity += input_vector * acceleration
 	velocity = velocity.limit_length(max_speed)
 	
 	if Input.is_action_pressed("rotate_right"):

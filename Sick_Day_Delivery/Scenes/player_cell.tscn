@@ -56,8 +56,10 @@ animations = [{
 [node name="PlayerCell" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.1, 0.1)
 motion_mode = 1
-wall_min_slide_angle = 0.0174533
+wall_min_slide_angle = 0.570723
 script = ExtResource("1_aui7q")
+max_speed = 300.0
+rotation_speed = 150.0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -81,6 +83,7 @@ texture = ExtResource("2_juu6w")
 one_shot = true
 explosiveness = 1.0
 randomness = 0.75
+collision_base_size = 36.42
 visibility_rect = Rect2(0, 0, 0, 0)
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
