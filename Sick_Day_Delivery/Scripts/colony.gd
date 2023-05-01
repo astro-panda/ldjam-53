@@ -9,11 +9,13 @@ signal enemy_spawn
 
 var colliding = false
 var colony_ded = false
+var default_children
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ColonyAnimation.play("Blink")
 	GlobalState.report_colony_created()
+	default_children = self.get_children().size()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,7 +24,7 @@ func _process(delta):
 		colony_ded = true
 		$ColonyAnimation.hide()
 		process_priority = 0
-	if self.get_children().size() == 3 && process_priority == 0:
+	if self.get_children().size() <= default_children && process_priority == 0:
 		print_debug("colony destroyed")
 		destroy_colony()
 		queue_free()
