@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dda8sqvfl2s8l"]
+
+[ext_resource type="Texture2D" uid="uid://dbnk3qmvhyndo" path="res://Sprites/target_arrow.png" id="1_3b0a4"]
+[ext_resource type="Script" path="res://Scripts/bacteria_indicator.gd" id="1_wwppi"]
+
+[node name="bacteria_indicator" type="Node2D"]
+script = ExtResource("1_wwppi")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -328)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3b0a4")
