@@ -51,6 +51,10 @@ shape = SubResource("CircleShape2D_c51ot")
 sprite_frames = SubResource("SpriteFrames_e4qsp")
 animation = &"Blink"
 
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="ColonyTimer" to="." method="_on_colony_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

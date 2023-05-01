@@ -17,6 +17,7 @@ func game_over(time):
 
 func _on_play_again_pressed():
 	get_tree().reload_current_scene()
+	GlobalState.reset_state()
 
 
 func _on_quit_pressed():

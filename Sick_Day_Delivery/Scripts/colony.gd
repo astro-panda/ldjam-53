@@ -18,11 +18,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("cure") && colliding:
+	if Input.is_action_pressed("cure") && colliding && !colony_ded:
+		colony_ded = true
 		$ColonyAnimation.hide()
 		process_priority = 0
 	if self.get_children().size() == 3 && process_priority == 0:
 		print_debug("colony destroyed")
+		destroy_colony()
 		queue_free()
 		
 func createBacterium():
@@ -37,7 +39,7 @@ func _on_colony_timer_timeout():
 
 func destroy_colony():
 	await GlobalState.report_colony_destroyed()
-	queue_free()
+	$DeathTimer.start()
 	
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
@@ -46,3 +48,7 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.is_in_group("Player"):
 		colliding = false
+
+
+func _on_death_timer_timeout():
+	queue_free()
