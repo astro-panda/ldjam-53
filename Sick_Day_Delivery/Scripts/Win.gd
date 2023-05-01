@@ -5,11 +5,6 @@ extends Control
 func _ready():
 	$Canvas.visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func win(time):
 	$Yay.play()
 	$Canvas/Message.text = "Bacterium Killed: %d\nColonies Destroyed: %d\nElapsed Time: %s" %[GlobalState.enemies_destroyed, GlobalState.colonies_destroyed, time]

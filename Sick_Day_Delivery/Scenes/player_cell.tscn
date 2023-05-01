@@ -77,4 +77,3 @@ bus = &"Player"
 
 [node name="colony_indicator" parent="." instance=ExtResource("9_1fisr")]
 position = Vector2(3.90236, -125.79)
-[node name="Node2D" type="Node2D" parent="."]
