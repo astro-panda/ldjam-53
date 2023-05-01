@@ -27,3 +27,9 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 #		print_debug(collision.get_collider().name)
 
+	if Input.is_action_just_pressed("cure"):
+		if $GPUParticles2D.emitting == false:
+			$GPUParticles2D.restart()
+			$GPUParticles2D.emitting = true
+#	if Input.is_action_just_released("cure"):
+#		$GPUParticles2D.emitting = false
