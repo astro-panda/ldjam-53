@@ -35,3 +35,10 @@ func report_colony_destroyed():
 	total_colonies -= 1
 	emit_signal("on_colonies_destroyed", colonies_destroyed)
 	emit_signal("on_colony_count_updated", total_colonies)
+	
+func reset_state():
+	enemies_destroyed = 0
+	colonies_destroyed = 0
+	total_enemies = 0
+	total_colonies = 0
+
