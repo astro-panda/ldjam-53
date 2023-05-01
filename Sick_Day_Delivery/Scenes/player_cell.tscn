@@ -49,6 +49,7 @@ decceleration = 0.05
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
 shape = SubResource("CapsuleShape2D_2k2cv")
 
 [node name="Camera2D" type="Camera2D" parent="."]

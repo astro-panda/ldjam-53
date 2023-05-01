@@ -9,6 +9,7 @@ extends Timer
 
 @onready var spawns = $SpawnPoints.get_children()
 var colony_generation = 1
+var teleport_bacteria = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,7 +21,7 @@ func _process(delta):
 	pass
 
 func createColony():
-	if colony_generation < colony_max_generations:
+	if colony_generation <= colony_max_generations:
 		var child_count = 0
 		for child in $Colonies.get_children():
 			if child.process_priority != 0:
@@ -36,3 +37,11 @@ func createColony():
 			colony.add_to_group("colony")
 			colony.position = spawns[0].position		
 			$Colonies.add_child(colony)
+	else:
+		if teleport_bacteria && $Colonies.get_children().size() == 0:
+			teleport_bacteria = false
+			var radius := 15
+			var player_location = get_tree().get_first_node_in_group("Player").position
+			for bacterium in get_tree().get_first_node_in_group("BacteriaGroup").get_children():
+				bacterium.position = player_location + Vector2(sin(randi()) * radius, cos(randi()) * radius)
+			

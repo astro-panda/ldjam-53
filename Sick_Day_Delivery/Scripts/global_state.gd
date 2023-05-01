@@ -40,8 +40,8 @@ func report_colony_destroyed():
 	try_win_game()
 	
 func try_win_game():
-	if(total_enemies == 0 && 
-		total_colonies == 0 && 
+	if(total_enemies <= 0 && 
+		total_colonies <= 0 && 
 		enemies_destroyed > 0 && 
 		colonies_destroyed > 0):
 		print("🫡🏆🎆 YOU WON! YOU WINNINGING WINNER YOU! 🫡🏆🎆")

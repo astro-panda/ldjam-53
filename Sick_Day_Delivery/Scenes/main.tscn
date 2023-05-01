@@ -21,11 +21,6 @@ position = Vector2(1526, 2505)
 [node name="audio" parent="." instance=ExtResource("6_cs0yl")]
 process_mode = 3
 
-[node name="PlayerCell" parent="." instance=ExtResource("2_dynj6")]
-position = Vector2(1508, 1171)
-motion_mode = 0
-wall_min_slide_angle = 0.00872665
-
 [node name="HUD" parent="." groups=["HUD"] instance=ExtResource("8_to7ic")]
 
 [node name="infection_spawner" parent="." instance=ExtResource("7_sg8fw")]
@@ -64,12 +59,17 @@ position = Vector2(1510, 1969)
 [node name="Mid_Torso" type="Node2D" parent="infection_spawner/SpawnPoints"]
 position = Vector2(1554, 1541)
 
-[node name="PauseMenu" parent="." instance=ExtResource("9_y16aj")]
-
-[node name="GameOver" parent="." instance=ExtResource("10_qc34m")]
-
-[node name="Win" parent="." instance=ExtResource("10_yous1")]
-
 [node name="Cures" type="Node" parent="." groups=["Cure"]]
 
 [node name="Bacteria" type="Node" parent="." groups=["BacteriaGroup"]]
+
+[node name="PlayerCell" parent="." instance=ExtResource("2_dynj6")]
+position = Vector2(1508, 1171)
+motion_mode = 0
+wall_min_slide_angle = 0.00872665
+
+[node name="GameOver" parent="." instance=ExtResource("10_qc34m")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_y16aj")]
+
+[node name="Win" parent="." instance=ExtResource("10_yous1")]
