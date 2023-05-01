@@ -11,6 +11,7 @@ func _process(delta):
 	pass
 
 func win(time):
+	$Yay.play()
 	$Canvas/Message.text = "Bacterium Killed: %d\nColonies Destroyed: %d\nElapsed Time: %s" %[GlobalState.enemies_destroyed, GlobalState.colonies_destroyed, time]
 	$Canvas.visible = true
 	get_tree().paused = true

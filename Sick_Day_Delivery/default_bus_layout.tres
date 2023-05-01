@@ -1,4 +1,9 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dxuvvitkvutdl"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dxuvvitkvutdl"]
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_2tetn"]
+resource_name = "Compressor"
+threshold = -4.6
+ratio = 4.5
 
 [resource]
 bus/1/name = &"Music"
@@ -11,8 +16,10 @@ bus/2/name = &"Ambience"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -5.04224
+bus/2/volume_db = -2.51026
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectCompressor_2tetn")
+bus/2/effect/0/enabled = false
 bus/3/name = &"Enemies"
 bus/3/solo = false
 bus/3/mute = false
