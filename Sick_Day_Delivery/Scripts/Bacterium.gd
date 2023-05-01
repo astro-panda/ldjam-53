@@ -32,6 +32,9 @@ func _physics_process(delta):
 			queue_free()
 
 func _on_body_entered(_body):
-	await $MobAudioController.act(0)
+	await $MobAudioController.act(randi() % 4)
 	emit_signal("on_enemy_ded")
+	$DeathTimer.start()
+
+func _on_death_timer_timeout():
 	queue_free()
