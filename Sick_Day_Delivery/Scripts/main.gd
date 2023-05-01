@@ -12,25 +12,25 @@ func _ready():
 
 func _on_global_state_on_game_over():
 	print("game over 😭")
-	game_end()
-	$GameOver.game_over($HUD/Time/TimeAlive.text)
+	game_over()
 	
 func _on_global_state_on_game_won():
 	game_won()
 	
 func _process(delta):
 	if Input.is_action_just_pressed("game_over"):
-		game_end()
-		$GameOver.game_over($HUD/Time/TimeAlive.text)
+		game_over()
 	if Input.is_action_just_pressed("win"):
 		game_won()
 
 func game_won():
 	$PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED
+	$HUD.visible = false
 	$Win.win($HUD/Time/TimeAlive.text)
 
-func game_end():
+func game_over():
 	$PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED
 	$PlayerCell.process_mode = Node.PROCESS_MODE_DISABLED
 	$HUD.process_mode = Node.PROCESS_MODE_DISABLED
 	$HUD.visible = false
+	$GameOver.game_over($HUD/Time/TimeAlive.text)
