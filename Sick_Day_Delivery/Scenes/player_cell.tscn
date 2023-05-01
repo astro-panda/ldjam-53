@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvpq0di0nimsq"]
+[gd_scene load_steps=10 format=3 uid="uid://cvpq0di0nimsq"]
 
 [ext_resource type="Script" path="res://Scripts/player_cell.gd" id="1_aui7q"]
 [ext_resource type="Texture2D" uid="uid://bgfxom1a4pd4b" path="res://Sprites/Pill_PlaceholderOpen.png" id="2_cb6xu"]
 [ext_resource type="Texture2D" uid="uid://d1spj261c4q8f" path="res://Sprites/Pill_Placeholder.png" id="2_juu6w"]
 [ext_resource type="Texture2D" uid="uid://dpsrjkbs785cv" path="res://Sprites/Pill_PlaceholderClosing.png" id="3_b0xxo"]
 [ext_resource type="Texture2D" uid="uid://dpxwmtk4ldmci" path="res://Sprites/Pill_PlaceholderBlink.png" id="4_h4bqs"]
-[ext_resource type="PackedScene" uid="uid://dda8sqvfl2s8l" path="res://Scenes/bacteria_indicator.tscn" id="5_f10cd"]
+[ext_resource type="PackedScene" path="res://Scenes/bacteria_indicator.tscn" id="5_f10cd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2k2cv"]
 radius = 40.0
@@ -70,6 +70,7 @@ limit_bottom = 5000
 position_smoothing_speed = 10.0
 
 [node name="bacteria_indicator" parent="." instance=ExtResource("5_f10cd")]
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 20
@@ -81,7 +82,6 @@ randomness = 0.75
 visibility_rect = Rect2(0, 0, 0, 0)
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_lf3au")
 frame = 4
 frame_progress = 0.895432
