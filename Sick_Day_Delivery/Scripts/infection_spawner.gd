@@ -29,5 +29,5 @@ func createColony():
 			spawns.shuffle()
 		print_debug(spawns[0].name + ": " + str(spawns[0].position))
 		colony.process_priority = 1
-		colony.position = spawns[0].position
-		$Colonies.add_child(colony)		
+		colony.position = spawns[0].position		
+		$Colonies.add_child(colony)
