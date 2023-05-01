@@ -28,11 +28,12 @@ func _physics_process(delta):
 		if(collision.get_collider().has_method("destroy_bacteria")):
 			print_debug(collision.get_collider().name)
 			collision.get_collider().destroy_bacteria()
-
+			$Dooting.play()
 
 	if Input.is_action_just_pressed("cure"):
 		if $GPUParticles2D.emitting == false:
 			$GPUParticles2D.restart()
 			$GPUParticles2D.emitting = true
+			$Whooshing.play()
 #	if Input.is_action_just_released("cure"):
 #		$GPUParticles2D.emitting = false
