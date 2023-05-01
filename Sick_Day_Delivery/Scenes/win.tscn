@@ -1,7 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq5e6witw2k2u"]
+[gd_scene load_steps=6 format=3 uid="uid://cq5e6witw2k2u"]
 
 [ext_resource type="Script" path="res://Scripts/Win.gd" id="1_dknb4"]
+[ext_resource type="Texture2D" uid="uid://d1spj261c4q8f" path="res://Sprites/Pill_Placeholder.png" id="2_0mr66"]
 [ext_resource type="AudioStream" uid="uid://bprdaxhrja8rt" path="res://Audio/YAY.mp3" id="2_5a3fv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kovoe"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_suicg"]
+lifetime_randomness = 0.58
+emission_shape = 4
+emission_point_count = 1
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 1)
+spread = 180.0
+gravity = Vector3(0, 30, 0)
+initial_velocity_max = 382.56
+angular_velocity_max = 720.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 14.25
+radial_accel_min = 4.7
+radial_accel_max = 100.0
+damping_max = 8.72
+scale_min = 0.2
+scale_max = 0.75
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 
 [node name="Win" type="Control"]
 process_mode = 3
@@ -12,6 +37,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dknb4")
+metadata/_edit_lock_ = true
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
@@ -23,6 +49,64 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0901961, 0.894118, 1, 0.356863)
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Pillfettis" type="Node2D" parent="Canvas"]
+
+[node name="Pills" type="GPUParticles2D" parent="Canvas/Pillfettis"]
+material = SubResource("CanvasItemMaterial_kovoe")
+position = Vector2(1818, 95)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_suicg")
+texture = ExtResource("2_0mr66")
+lifetime = 567.66
+speed_scale = 3.09
+
+[node name="Pills2" type="GPUParticles2D" parent="Canvas/Pillfettis"]
+material = SubResource("CanvasItemMaterial_kovoe")
+position = Vector2(942, 924)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_suicg")
+texture = ExtResource("2_0mr66")
+lifetime = 567.66
+speed_scale = 3.09
+
+[node name="Pills6" type="GPUParticles2D" parent="Canvas/Pillfettis"]
+material = SubResource("CanvasItemMaterial_kovoe")
+position = Vector2(402, 488)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_suicg")
+texture = ExtResource("2_0mr66")
+lifetime = 567.66
+speed_scale = 3.09
+
+[node name="Pills3" type="GPUParticles2D" parent="Canvas/Pillfettis"]
+material = SubResource("CanvasItemMaterial_kovoe")
+position = Vector2(90, 968)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_suicg")
+texture = ExtResource("2_0mr66")
+lifetime = 567.66
+speed_scale = 3.09
+
+[node name="Pills4" type="GPUParticles2D" parent="Canvas/Pillfettis"]
+material = SubResource("CanvasItemMaterial_kovoe")
+position = Vector2(1762, 963)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_suicg")
+texture = ExtResource("2_0mr66")
+lifetime = 567.66
+speed_scale = 3.09
+
+[node name="Pills5" type="GPUParticles2D" parent="Canvas/Pillfettis"]
+material = SubResource("CanvasItemMaterial_kovoe")
+position = Vector2(930, 140)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_suicg")
+texture = ExtResource("2_0mr66")
+lifetime = 3.0
+explosiveness = 0.2
+trail_lifetime = 7.55
 
 [node name="YouWin" type="Label" parent="Canvas"]
 anchors_preset = 10
@@ -37,6 +121,7 @@ text = "You Win!"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Message" type="Label" parent="Canvas"]
 anchors_preset = 10
@@ -50,6 +135,7 @@ Colonies Destroyed: 0
 Elapsed Time: 0:00"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="PlayAgain" type="Button" parent="Canvas"]
 offset_left = 723.0
@@ -59,6 +145,7 @@ offset_bottom = 809.0
 theme_override_font_sizes/font_size = 64
 text = "Play Again?"
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Quit" type="Button" parent="Canvas"]
 offset_left = 723.0
@@ -68,6 +155,7 @@ offset_bottom = 977.0
 theme_override_font_sizes/font_size = 64
 text = "Quit"
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Yay" type="AudioStreamPlayer" parent="."]
 process_mode = 3
