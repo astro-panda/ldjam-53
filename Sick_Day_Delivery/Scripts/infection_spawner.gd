@@ -1,7 +1,7 @@
 extends Timer
 
 @export var colony_max_on_screen := 1
-@export var colony_max_generations := 5
+@export var colony_max_generations := 12
 
 @export_range(0, 20, 2) var spawn_rate: int
 @export_range(0, 1, .025) var spawn_chance: float
