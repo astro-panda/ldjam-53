@@ -27,14 +27,16 @@ func _physics_process(delta):
 	
 	if collision:
 		var body_name = collision.get_collider().name
-		print_debug(collision.get_collider().name)
 		if body_name == "PlayerCell":
 			queue_free()
 
 func _on_body_entered(_body):
-	await $MobAudioController.act(randi() % 4)
-	emit_signal("on_enemy_ded")
-	$DeathTimer.start()
+	destroy_bacteria()
 
 func _on_death_timer_timeout():
 	queue_free()
+	
+func destroy_bacteria():
+	await $MobAudioController.act(randi() % 4)
+	emit_signal("on_enemy_ded")
+	$DeathTimer.start()	
