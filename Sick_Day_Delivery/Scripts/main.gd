@@ -4,6 +4,9 @@ func _ready():
 	$PauseMenu/Canvas.visible = false
 	GlobalState.on_game_over.connect(_on_global_state_on_game_over)
 	$HUD.visible = true
+	$PauseMenu.process_mode = Node.PROCESS_MODE_ALWAYS
+	$PlayerCell.process_mode = Node.PROCESS_MODE_INHERIT
+	$HUD.process_mode = Node.PROCESS_MODE_INHERIT
 
 func _on_global_state_on_game_over():
 	print("game over 😭")
