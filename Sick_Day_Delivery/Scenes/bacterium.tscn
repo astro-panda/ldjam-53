@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="2_t8pqe"]
 [ext_resource type="Texture2D" uid="uid://dy6wv6icnbxex" path="res://Sprites/BacteriumPlaceholderClosing.png" id="3_tsrh2"]
 [ext_resource type="Texture2D" uid="uid://dkj22ftiqb28p" path="res://Sprites/BacteriumPlaceholderBlink.png" id="4_iwx0g"]
-[ext_resource type="PackedScene" path="res://Scenes/mob_audio_controller.tscn" id="5_y6dl2"]
+[ext_resource type="PackedScene" uid="uid://d1o54853ecumx" path="res://Scenes/mob_audio_controller.tscn" id="5_y6dl2"]
 [ext_resource type="AudioStream" uid="uid://c43uubnn7a6lc" path="res://Audio/Foley/Enemy Hurt 1.mp3" id="6_dj75s"]
 [ext_resource type="AudioStream" uid="uid://c6t4ivr56vew8" path="res://Audio/Foley/Enemy Hurt 2.mp3" id="7_s1ygv"]
 

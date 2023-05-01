@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://by2kd0e26letn"]
+[gd_scene load_steps=9 format=3 uid="uid://by2kd0e26letn"]
 
 [ext_resource type="Script" path="res://Scripts/TimeAlive.gd" id="1_if4uy"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_qxxad"]
@@ -28,6 +28,15 @@ animations = [{
 "name": &"Blink",
 "speed": 10.0
 }]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_frvgp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5omms"]
+bg_color = Color(0.560784, 0.65098, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_qxxad")
@@ -81,5 +90,29 @@ vertical_alignment = 1
 script = ExtResource("1_if4uy")
 
 [node name="Timer" type="Timer" parent="Time/TimeAlive"]
+
+[node name="SepticMeter" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.092
+anchor_bottom = 0.037
+offset_left = 1698.0
+offset_top = 34.0
+offset_right = 1699.36
+offset_bottom = 34.04
+
+[node name="ProgressBar" type="ProgressBar" parent="SepticMeter"]
+custom_minimum_size = Vector2(80, 1080)
+layout_mode = 0
+offset_left = 142.0
+offset_top = -34.0
+offset_right = 222.0
+offset_bottom = 1046.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/background = SubResource("StyleBoxTexture_frvgp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5omms")
+value = 50.0
+rounded = true
+fill_mode = 3
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="Time/TimeAlive/Timer" to="Time/TimeAlive" method="_on_timer_timeout"]

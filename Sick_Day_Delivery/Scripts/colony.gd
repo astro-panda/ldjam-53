@@ -13,6 +13,7 @@ var colony_ded = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ColonyAnimation.play("Blink")
+	GlobalState.report_colony_created()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,6 +36,7 @@ func _on_colony_timer_timeout():
 	createBacterium()
 
 func destroy_colony():
+	await GlobalState.report_colony_destroyed()
 	queue_free()
 	
 func _on_body_entered(body):

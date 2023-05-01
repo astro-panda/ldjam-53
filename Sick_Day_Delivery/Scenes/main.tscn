@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4xi3mlkhu4ow"]
+[gd_scene load_steps=9 format=3 uid="uid://b4xi3mlkhu4ow"]
 
-[ext_resource type="PackedScene" path="res://Scenes/body_map.tscn" id="1_6xrru"]
+[ext_resource type="PackedScene" uid="uid://bhh5dmfulsc0f" path="res://Scenes/body_map.tscn" id="1_6xrru"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mnr5t"]
 [ext_resource type="PackedScene" uid="uid://cvpq0di0nimsq" path="res://Scenes/player_cell.tscn" id="2_dynj6"]
 [ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="6_cs0yl"]
-[ext_resource type="PackedScene" path="res://Scenes/global_state.tscn" id="7_3cwkh"]
 [ext_resource type="PackedScene" uid="uid://q78nn6ov4tkl" path="res://Scenes/infection_spawner.tscn" id="7_sg8fw"]
 [ext_resource type="PackedScene" uid="uid://cl3gneduvqjdn" path="res://Scenes/colony.tscn" id="8_nndff"]
-[ext_resource type="PackedScene" path="res://Scenes/HUD.tscn" id="8_to7ic"]
-[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="9_y16aj"]
+[ext_resource type="PackedScene" uid="uid://by2kd0e26letn" path="res://Scenes/HUD.tscn" id="8_to7ic"]
+[ext_resource type="PackedScene" uid="uid://ccvpanj0i8wfv" path="res://Scenes/pause_menu.tscn" id="9_y16aj"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mnr5t")
@@ -24,8 +23,6 @@ process_mode = 3
 position = Vector2(1508, 1171)
 motion_mode = 0
 wall_min_slide_angle = 0.00872665
-
-[node name="Global State" parent="." instance=ExtResource("7_3cwkh")]
 
 [node name="HUD" parent="." groups=["HUD"] instance=ExtResource("8_to7ic")]
 
