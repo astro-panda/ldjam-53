@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://draeoultri5r3"]
+[gd_scene load_steps=16 format=3 uid="uid://draeoultri5r3"]
 
 [ext_resource type="Texture2D" uid="uid://bgfxom1a4pd4b" path="res://Sprites/Pill_PlaceholderOpen.png" id="1_m26p8"]
 [ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_uv6ll"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dv2a4y6esjmj8" path="res://default_theme.tres" id="2_se7hk"]
 [ext_resource type="PackedScene" uid="uid://bv6ihc3uoglqx" path="res://Scenes/quit.tscn" id="3_oy5jp"]
 [ext_resource type="Texture2D" uid="uid://dpxwmtk4ldmci" path="res://Sprites/Pill_PlaceholderBlink.png" id="3_qxvwk"]
+[ext_resource type="PackedScene" uid="uid://d4d1pjjlp64nl" path="res://Scenes/controls.tscn" id="3_stmc0"]
 [ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="5_8lu0s"]
 [ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="7_8rbi1"]
 [ext_resource type="Texture2D" uid="uid://dy6wv6icnbxex" path="res://Sprites/BacteriumPlaceholderClosing.png" id="8_0pmck"]
@@ -73,6 +74,7 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uv6ll")
 quit_scene = ExtResource("3_oy5jp")
+controls_scene = ExtResource("3_stmc0")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -122,7 +124,6 @@ text = "Start"
 metadata/_edit_use_anchors_ = true
 
 [node name="HowToPlay" type="Button" parent="Canvas"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
