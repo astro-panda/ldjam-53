@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv6ihc3uoglqx"]
+[gd_scene load_steps=13 format=3 uid="uid://bv6ihc3uoglqx"]
 
 [ext_resource type="Texture2D" uid="uid://bgfxom1a4pd4b" path="res://Sprites/Pill_PlaceholderOpen.png" id="3_cf4ay"]
 [ext_resource type="Texture2D" uid="uid://dpsrjkbs785cv" path="res://Sprites/Pill_PlaceholderClosing.png" id="4_2pnik"]
@@ -7,6 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://dy6wv6icnbxex" path="res://Sprites/BacteriumPlaceholderClosing.png" id="7_lscl0"]
 [ext_resource type="Texture2D" uid="uid://dkj22ftiqb28p" path="res://Sprites/BacteriumPlaceholderBlink.png" id="8_rbh38"]
 [ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="9_7u45b"]
+
+[sub_resource type="GDScript" id="GDScript_2yinf"]
+script/source = "extends Control
+
+@export var menu_scene : PackedScene
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_menu_pressed():
+	get_tree().change_scene_to_packed(menu_scene)
+"
 
 [sub_resource type="Gradient" id="Gradient_t1k70"]
 offsets = PackedFloat32Array(0, 0.0645161, 1)
@@ -72,6 +90,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_2yinf")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
