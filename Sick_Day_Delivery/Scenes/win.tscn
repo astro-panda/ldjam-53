@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq5e6witw2k2u"]
+[gd_scene load_steps=3 format=3 uid="uid://cq5e6witw2k2u"]
 
 [ext_resource type="Script" path="res://Scripts/Win.gd" id="1_dknb4"]
+[ext_resource type="AudioStream" uid="uid://bprdaxhrja8rt" path="res://Audio/YAY.mp3" id="2_5a3fv"]
 
 [node name="Win" type="Control"]
 process_mode = 3
@@ -67,6 +68,12 @@ offset_bottom = 977.0
 theme_override_font_sizes/font_size = 64
 text = "Quit"
 metadata/_edit_use_anchors_ = true
+
+[node name="Yay" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2_5a3fv")
+volume_db = -5.333
+bus = &"Ambience"
 
 [connection signal="pressed" from="Canvas/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="Canvas/Quit" to="." method="_on_quit_pressed"]
