@@ -6,6 +6,7 @@ signal enemy_spawn
 @export_range(0, 20, 2) var spawn_rate: int
 @export_range(0, 1, .025) var spawn_chance: float
 @export var bacteriumScene: PackedScene
+@onready var bacteria = get_tree().get_first_node_in_group("BacteriaGroup")
 
 var colliding = false
 var colony_ded = false
@@ -15,21 +16,16 @@ var default_children
 func _ready():
 	$ColonyAnimation.play("Blink")
 	GlobalState.report_colony_created()
-	default_children = self.get_children().size()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("cure") && colliding && !colony_ded:
-		destroy_colony()
-	if self.get_children().size() <= default_children && process_priority == 0:
-		print_debug("colony destroyed")
-		$DeathTimer.start()
+	pass
 		
 func createBacterium():
-	if process_priority > 0 && get_children().size() - default_children < bacteria_max:
+	if bacteria_max > bacteria.get_children().size():
 		var bacterium = bacteriumScene.instantiate()
-		bacterium.position = Vector2.ZERO
-		add_child(bacterium)
+		bacterium.position = self.position
+		bacteria.add_child(bacterium)
 
 func _on_colony_timer_timeout():
 	createBacterium()
@@ -39,14 +35,7 @@ func destroy_colony():
 	colony_ded = true
 	$ColonyAnimation.hide()
 	await GlobalState.report_colony_destroyed()
+	$DeathTimer.start()
 	
-func _on_body_entered(body):
-	if body.is_in_group("Player"):
-		colliding = true
-
-func _on_body_exited(body):
-	if body.is_in_group("Player"):
-		colliding = false
-
 func _on_death_timer_timeout():
 	queue_free()

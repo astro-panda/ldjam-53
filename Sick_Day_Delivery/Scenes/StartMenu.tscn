@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://dv2a4y6esjmj8" path="res://default_theme.tres" id="2_se7hk"]
 [ext_resource type="PackedScene" uid="uid://bv6ihc3uoglqx" path="res://Scenes/quit.tscn" id="3_oy5jp"]
 [ext_resource type="Texture2D" uid="uid://dpxwmtk4ldmci" path="res://Sprites/Pill_PlaceholderBlink.png" id="3_qxvwk"]
-[ext_resource type="PackedScene" uid="uid://d4d1pjjlp64nl" path="res://Scenes/controls.tscn" id="3_stmc0"]
+[ext_resource type="PackedScene" path="res://Scenes/controls.tscn" id="3_stmc0"]
 [ext_resource type="PackedScene" uid="uid://cy8wae7f4lg5e" path="res://Scenes/audio.tscn" id="5_8lu0s"]
 [ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="7_8rbi1"]
 [ext_resource type="Texture2D" uid="uid://dy6wv6icnbxex" path="res://Sprites/BacteriumPlaceholderClosing.png" id="8_0pmck"]
