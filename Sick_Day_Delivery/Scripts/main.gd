@@ -3,6 +3,7 @@ extends Node2D
 func _ready():
 	$PauseMenu/Canvas.visible = false
 	GlobalState.on_game_over.connect(_on_global_state_on_game_over)
+	GlobalState.on_game_won.connect(_on_global_state_on_game_won)
 	$HUD.visible = true
 	$PauseMenu.process_mode = Node.PROCESS_MODE_ALWAYS
 	$PlayerCell.process_mode = Node.PROCESS_MODE_INHERIT
@@ -14,13 +15,19 @@ func _on_global_state_on_game_over():
 	game_end()
 	$GameOver.game_over($HUD/Time/TimeAlive.text)
 	
+func _on_global_state_on_game_won():
+	game_won()
+	
 func _process(delta):
 	if Input.is_action_just_pressed("game_over"):
 		game_end()
 		$GameOver.game_over($HUD/Time/TimeAlive.text)
 	if Input.is_action_just_pressed("win"):
-		$PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED
-		$Win.win($HUD/Time/TimeAlive.text)
+		game_won()
+
+func game_won():
+	$PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED
+	$Win.win($HUD/Time/TimeAlive.text)
 
 func game_end():
 	$PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED

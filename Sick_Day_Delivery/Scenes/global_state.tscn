@@ -4,6 +4,4 @@
 
 [node name="Global State" type="Node"]
 script = ExtResource("1_beo4s")
-enemies_destroyed = 100
-colonies_destroyed = 100
-enemies_max = 100
+enemies_max = 125
