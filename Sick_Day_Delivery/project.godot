@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.0", "GL Compatibility")
 boot_splash/bg_color=Color(0.0156863, 0.164706, 0.172549, 1)
 boot_splash/image="res://Sprites/Pill_PlaceholderOpen.png"
 boot_splash/fullsize=false
-config/icon="res://icon.svg"
+config/icon="res://Sprites/Pill_PlaceholderOpen.png"
 
 [audio]
 
