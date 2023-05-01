@@ -43,6 +43,9 @@ motion_mode = 1
 wall_min_slide_angle = 0.0174533
 script = ExtResource("1_aui7q")
 cureScene = ExtResource("2_4ex16")
+acceleration = 3.0
+rotation_speed = 190.0
+decceleration = 0.05
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -74,3 +77,4 @@ bus = &"Player"
 
 [node name="colony_indicator" parent="." instance=ExtResource("9_1fisr")]
 position = Vector2(3.90236, -125.79)
+[node name="Node2D" type="Node2D" parent="."]
