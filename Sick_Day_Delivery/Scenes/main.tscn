@@ -71,3 +71,5 @@ position = Vector2(1554, 1541)
 [node name="Win" parent="." instance=ExtResource("10_yous1")]
 
 [node name="Cures" type="Node" parent="." groups=["Cure"]]
+
+[node name="Bacteria" type="Node" parent="." groups=["BacteriaGroup"]]
