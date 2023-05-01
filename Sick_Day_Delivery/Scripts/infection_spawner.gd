@@ -1,7 +1,7 @@
 extends Timer
 
 @export var colony_max_on_screen := 1
-@export var colony_max_generations := 12
+@export var colony_max_generations := 5
 
 @export_range(0, 20, 2) var spawn_rate: int
 @export_range(0, 1, .025) var spawn_chance: float
@@ -33,5 +33,6 @@ func createColony():
 				spawns.shuffle()
 			print_debug(spawns[0].name + ": " + str(spawns[0].position))
 			colony.process_priority = 1
+			colony.add_to_group("colony")
 			colony.position = spawns[0].position		
 			$Colonies.add_child(colony)

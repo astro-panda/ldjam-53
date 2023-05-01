@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var acceleration := 2.0
 @export var max_speed := 400.0
 @export var rotation_speed := 250.0
+@export var cureScene: PackedScene
 
 func _ready():
 	$PlayerAnimation.play()
@@ -31,9 +32,15 @@ func _physics_process(delta):
 			$Dooting.play()
 
 	if Input.is_action_just_pressed("cure"):
-		if $GPUParticles2D.emitting == false:
-			$GPUParticles2D.restart()
-			$GPUParticles2D.emitting = true
+			var cure = cureScene.instantiate()
+			cure.position = self.position
+			get_tree().get_first_node_in_group("Cure").add_child(cure)
 			$Whooshing.play()
 #	if Input.is_action_just_released("cure"):
 #		$GPUParticles2D.emitting = false
+
+
+func _on_cure_timer_timeout():
+	$CureArea2D.visible = false
+
+
