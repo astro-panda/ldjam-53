@@ -31,7 +31,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Bacterium" type="CharacterBody2D"]
+[node name="Bacterium" type="CharacterBody2D" groups=["bacteria"]]
 position = Vector2(587, 326)
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_buof0")
