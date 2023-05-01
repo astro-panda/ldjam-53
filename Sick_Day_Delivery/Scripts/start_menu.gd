@@ -1,8 +1,8 @@
 extends Control
 
 signal game_started
-signal view_how_to_play
 @export var quit_scene : PackedScene
+@export var controls_scene : PackedScene
 
 func _ready():
 	$Canvas.visible = true;
@@ -12,7 +12,7 @@ func _on_start_button_pressed():
 
 
 func _on_how_to_play_pressed():
-	emit_signal("view_how_to_play")
+	get_tree().change_scene_to_packed(controls_scene)
 
 
 func _on_x_pressed():

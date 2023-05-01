@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxhdcnw2mu2wj"]
+
+[ext_resource type="Script" path="res://Scripts/cure.gd" id="1_yves4"]
+[ext_resource type="Texture2D" uid="uid://d1spj261c4q8f" path="res://Sprites/Pill_Placeholder.png" id="2_376dq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7uuhn"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+angular_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 360.0
+hue_variation_min = -0.37
+hue_variation_max = 0.24
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24m6b"]
+custom_solver_bias = 1.0
+radius = 1949.28
+
+[node name="cure" type="Node2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_yves4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+scale = Vector2(58.455, 60.7166)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_7uuhn")
+texture = ExtResource("2_376dq")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.75
+visibility_rect = Rect2(0, 0, 0, 0)
+
+[node name="CureArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CureArea2D"]
+shape = SubResource("CircleShape2D_24m6b")
+
+[node name="CureTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="CureArea2D" to="." method="_on_cure_area_2d_area_entered"]
+[connection signal="body_entered" from="CureArea2D" to="." method="_on_cure_area_2d_body_entered"]
+[connection signal="timeout" from="CureTimer" to="." method="_on_cure_timer_timeout"]

@@ -1,18 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4d1pjjlp64nl"]
+[gd_scene load_steps=10 format=3 uid="uid://d4d1pjjlp64nl"]
 
 [ext_resource type="Script" path="res://Scenes/controls.gd" id="1_gxy4q"]
-[ext_resource type="PackedScene" uid="uid://draeoultri5r3" path="res://Scenes/StartMenu.tscn" id="2_18hky"]
-
-[sub_resource type="Gradient" id="Gradient_rydkq"]
-offsets = PackedFloat32Array(0, 0.0645161, 1)
-colors = PackedColorArray(0, 0.278431, 0.337255, 1, 0, 0.278431, 0.337255, 1, 0, 0.172549, 0.337255, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_q5kvs"]
-gradient = SubResource("Gradient_rydkq")
-width = 1920
-height = 1020
-fill_from = Vector2(0.665138, 0.793578)
-fill_to = Vector2(0.458716, 0)
+[ext_resource type="PackedScene" uid="uid://cvpq0di0nimsq" path="res://Scenes/player_cell.tscn" id="3_n0ecv"]
+[ext_resource type="PackedScene" uid="uid://bxhdcnw2mu2wj" path="res://Scenes/bigCure.tscn" id="4_fdotg"]
+[ext_resource type="AudioStream" uid="uid://dfox4vgcl8rtj" path="res://Audio/Ambient Noise.wav" id="5_ia7il"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5faxn"]
 
@@ -22,6 +13,17 @@ size = Vector2(1928, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_veq4f"]
 size = Vector2(19, 1110)
 
+[sub_resource type="Gradient" id="Gradient_uuobh"]
+offsets = PackedFloat32Array(0, 0.0645161, 1)
+colors = PackedColorArray(0, 0.278431, 0.337255, 1, 0, 0.278431, 0.337255, 1, 0, 0.172549, 0.337255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q5kvs"]
+gradient = SubResource("Gradient_uuobh")
+width = 1920
+height = 1020
+fill_from = Vector2(0.665138, 0.793578)
+fill_to = Vector2(0.458716, 0)
+
 [node name="Controls" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -30,11 +32,45 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gxy4q")
-menu = ExtResource("2_18hky")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Controls" type="CanvasLayer" parent="."]
 
-[node name="Background" type="TextureRect" parent="CanvasLayer"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Controls"]
+physics_material_override = SubResource("PhysicsMaterial_5faxn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Controls/StaticBody2D"]
+position = Vector2(965, -11)
+shape = SubResource("RectangleShape2D_lw4yv")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Controls"]
+position = Vector2(0, 1096)
+physics_material_override = SubResource("PhysicsMaterial_5faxn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Controls/StaticBody2D2"]
+position = Vector2(955, -11)
+shape = SubResource("RectangleShape2D_lw4yv")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Controls"]
+position = Vector2(2, 0)
+physics_material_override = SubResource("PhysicsMaterial_5faxn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Controls/StaticBody2D3"]
+position = Vector2(-13, 539)
+shape = SubResource("RectangleShape2D_veq4f")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Controls"]
+position = Vector2(1945, 0)
+physics_material_override = SubResource("PhysicsMaterial_5faxn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Controls/StaticBody2D4"]
+position = Vector2(-13, 539)
+shape = SubResource("RectangleShape2D_veq4f")
+
+[node name="backgroundNoise" type="AudioStreamPlayer2D" parent="Controls"]
+stream = ExtResource("5_ia7il")
+autoplay = true
+
+[node name="Background" type="TextureRect" parent="Controls"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,83 +78,69 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.994)
 texture = SubResource("GradientTexture2D_q5kvs")
-metadata/_edit_use_anchors_ = true
 
-[node name="Title" type="Label" parent="CanvasLayer"]
+[node name="Title" type="Label" parent="Controls"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 184.0
+offset_top = 71.0
+offset_bottom = 255.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 110
 text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 393.0
-offset_top = 319.0
-offset_right = 1374.0
-offset_bottom = 410.0
+[node name="Label" type="Label" parent="Controls"]
+offset_left = 486.0
+offset_top = 376.0
+offset_right = 1467.0
+offset_bottom = 467.0
 scale = Vector2(1.38763, 1.38763)
 theme_override_font_sizes/font_size = 64
 text = "W/S - Move Forward/Backwards"
 
-[node name="Label3" type="Label" parent="CanvasLayer"]
-offset_left = 466.0
-offset_top = 753.0
-offset_right = 1337.0
-offset_bottom = 844.0
+[node name="Label3" type="Label" parent="Controls"]
+offset_left = 565.0
+offset_top = 662.0
+offset_right = 1436.0
+offset_bottom = 753.0
 scale = Vector2(1.38763, 1.38763)
 theme_override_font_sizes/font_size = 64
 text = "Spacebar - Medication Burst"
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
-offset_left = 642.0
-offset_top = 529.0
-offset_right = 1302.0
-offset_bottom = 620.0
+[node name="Label4" type="Label" parent="Controls"]
+offset_left = 510.0
+offset_top = 807.0
+offset_right = 1381.0
+offset_bottom = 898.0
+scale = Vector2(1.38763, 1.38763)
+theme_override_font_sizes/font_size = 64
+text = "Shift - Brake
+"
+
+[node name="Label2" type="Label" parent="Controls"]
+offset_left = 558.0
+offset_top = 521.0
+offset_right = 1218.0
+offset_bottom = 612.0
 scale = Vector2(1.38763, 1.38763)
 theme_override_font_sizes/font_size = 64
 text = "A/D - Rotate CCW/CW
 "
 
-[node name="Return" type="Button" parent="CanvasLayer"]
-offset_left = 716.0
-offset_top = 181.0
-offset_right = 1213.0
-offset_bottom = 277.0
+[node name="Button" type="Button" parent="Controls"]
+offset_left = 714.0
+offset_top = 260.0
+offset_right = 1211.0
+offset_bottom = 356.0
 theme_override_font_sizes/font_size = 64
 text = "Return to Menu"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-physics_material_override = SubResource("PhysicsMaterial_5faxn")
+[node name="Cures" type="Node" parent="Controls" groups=["Cure"]]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(965, -11)
-shape = SubResource("RectangleShape2D_lw4yv")
+[node name="PlayerCell" parent="Controls" instance=ExtResource("3_n0ecv")]
+position = Vector2(274, 624)
+scale = Vector2(1.29436, 1.29436)
+cureScene = ExtResource("4_fdotg")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(0, 1096)
-physics_material_override = SubResource("PhysicsMaterial_5faxn")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(955, -11)
-shape = SubResource("RectangleShape2D_lw4yv")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(2, 0)
-physics_material_override = SubResource("PhysicsMaterial_5faxn")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(-13, 539)
-shape = SubResource("RectangleShape2D_veq4f")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(1945, 0)
-physics_material_override = SubResource("PhysicsMaterial_5faxn")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(-13, 539)
-shape = SubResource("RectangleShape2D_veq4f")
-
-[connection signal="pressed" from="CanvasLayer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Controls/Button" to="." method="_on_button_pressed"]
