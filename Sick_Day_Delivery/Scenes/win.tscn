@@ -1,17 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd7jyka6e2eh0"]
+[gd_scene load_steps=2 format=3 uid="uid://cq5e6witw2k2u"]
 
-[ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_jxihd"]
-[ext_resource type="PackedScene" uid="uid://bv6ihc3uoglqx" path="res://Scenes/quit.tscn" id="2_sj1o7"]
+[ext_resource type="Script" path="res://Scripts/Win.gd" id="1_dknb4"]
 
-[node name="GameOver" type="Control"]
+[node name="Win" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jxihd")
-quit_scene = ExtResource("2_sj1o7")
+script = ExtResource("1_dknb4")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
@@ -21,20 +20,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.454902, 0.878431, 0.235294, 0.356863)
+color = Color(0.0901961, 0.894118, 1, 0.356863)
 metadata/_edit_use_anchors_ = true
 
-[node name="GameOver" type="Label" parent="Canvas"]
+[node name="YouWin" type="Label" parent="Canvas"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -2.0
-offset_top = 3.0
-offset_right = -828.0
-offset_bottom = 94.0
+offset_top = 159.0
+offset_right = -826.0
+offset_bottom = 250.0
 grow_horizontal = 2
 scale = Vector2(1.74971, 1.70331)
 theme_override_font_sizes/font_size = 64
-text = "Game Over"
+text = "You Win!"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -42,10 +40,8 @@ metadata/_edit_use_anchors_ = true
 [node name="Message" type="Label" parent="Canvas"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -2.0
-offset_top = 198.0
-offset_right = -2.0
-offset_bottom = 471.0
+offset_top = 354.0
+offset_bottom = 627.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
 text = "Bacterium Killed: 0
@@ -55,19 +51,19 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayAgain" type="Button" parent="Canvas"]
-offset_left = 721.0
-offset_top = 526.0
-offset_right = 1173.0
-offset_bottom = 653.0
+offset_left = 723.0
+offset_top = 682.0
+offset_right = 1175.0
+offset_bottom = 809.0
 theme_override_font_sizes/font_size = 64
 text = "Play Again?"
 metadata/_edit_use_anchors_ = true
 
 [node name="Quit" type="Button" parent="Canvas"]
-offset_left = 721.0
-offset_top = 694.0
-offset_right = 1173.0
-offset_bottom = 821.0
+offset_left = 723.0
+offset_top = 850.0
+offset_right = 1175.0
+offset_bottom = 977.0
 theme_override_font_sizes/font_size = 64
 text = "Quit"
 metadata/_edit_use_anchors_ = true
