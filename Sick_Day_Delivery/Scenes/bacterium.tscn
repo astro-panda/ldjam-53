@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bshn0kdmpqbnj"]
+[gd_scene load_steps=9 format=3 uid="uid://bshn0kdmpqbnj"]
 
 [ext_resource type="Script" path="res://Scripts/Bacterium.gd" id="1_buof0"]
 [ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="2_t8pqe"]
@@ -31,24 +31,20 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uu0s0"]
-radius = 60.1332
-
-[node name="Bacterium" type="Area2D"]
+[node name="Bacterium" type="CharacterBody2D"]
 position = Vector2(587, 326)
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_buof0")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_852eu")
 animation = &"Blink"
 frame_progress = 0.0375481
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, 16)
-shape = SubResource("CircleShape2D_uu0s0")
-
 [node name="MobAudioController" parent="." instance=ExtResource("5_y6dl2")]
 actions = Array[AudioStream]([ExtResource("6_dj75s"), ExtResource("7_s1ygv"), ExtResource("6_dj75s"), ExtResource("7_s1ygv")])
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(52, -44, 68, 12, 64, 56, 56, 64, 4, 64, -44, 64, -52, 52, -56, 8, -40, -44, 8, -48)

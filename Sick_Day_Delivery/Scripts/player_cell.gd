@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var acceleration := 20.0
-@export var max_speed := 450.0
+@export var max_speed := 400.0
 @export var rotation_speed := 250.0
 
 func _ready():
@@ -23,6 +23,7 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, 3)
 	
 	move_and_slide()
-	
-	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+#		print_debug(collision.get_collider().name)
 
