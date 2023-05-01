@@ -1,12 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl3gneduvqjdn"]
+[gd_scene load_steps=9 format=3 uid="uid://cl3gneduvqjdn"]
 
 [ext_resource type="Script" path="res://Scripts/colony.gd" id="1_7606h"]
 [ext_resource type="PackedScene" uid="uid://bshn0kdmpqbnj" path="res://Scenes/bacterium.tscn" id="2_fxxkw"]
 [ext_resource type="Script" path="res://Scripts/ColonyTimer.gd" id="3_pkowl"]
-[ext_resource type="Texture2D" uid="uid://dhuvgmi3gk51t" path="res://Sprites/BacteriumPlaceholderOpen.png" id="4_w31ri"]
+[ext_resource type="Texture2D" uid="uid://c7mctw3a8v2vt" path="res://Sprites/ColonySpriteOpen.png" id="4_dil1y"]
+[ext_resource type="Texture2D" uid="uid://b3ggt8q855jj5" path="res://Sprites/ColonySpriteClosing.png" id="5_capt4"]
+[ext_resource type="Texture2D" uid="uid://clqann34s4y8d" path="res://Sprites/ColonySpriteBlink.png" id="6_1r17b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c51ot"]
 radius = 34.2345
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4qsp"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("4_dil1y")
+}, {
+"duration": 0.75,
+"texture": ExtResource("5_capt4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1r17b")
+}, {
+"duration": 0.75,
+"texture": ExtResource("5_capt4")
+}, {
+"duration": 15.0,
+"texture": ExtResource("4_dil1y")
+}],
+"loop": true,
+"name": &"Blink",
+"speed": 10.0
+}]
 
 [node name="colony" type="Area2D"]
 position = Vector2(609, 726)
@@ -18,12 +43,13 @@ metadata/_edit_group_ = true
 autostart = true
 script = ExtResource("3_pkowl")
 
-[node name="ColonySprite" type="Sprite2D" parent="."]
-texture = ExtResource("4_w31ri")
-
 [node name="ColonyCollider" type="CollisionShape2D" parent="."]
 position = Vector2(9, 7)
 shape = SubResource("CircleShape2D_c51ot")
+
+[node name="ColonyAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e4qsp")
+animation = &"Blink"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -12,13 +12,13 @@ var colony_ded = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$ColonyAnimation.play("Blink")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("cure") && colliding:
-		$ColonySprite.hide()
+		$ColonyAnimation.hide()
 		process_priority = 0
 	if self.get_children().size() == 3 && process_priority == 0:
 		print_debug("colony destroyed")
