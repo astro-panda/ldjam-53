@@ -11,12 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://dy6wv6icnbxex" path="res://Sprites/BacteriumPlaceholderClosing.png" id="8_0pmck"]
 [ext_resource type="Texture2D" uid="uid://dkj22ftiqb28p" path="res://Sprites/BacteriumPlaceholderBlink.png" id="9_xht2a"]
 
-[sub_resource type="Gradient" id="Gradient_rydkq"]
+[sub_resource type="Gradient" id="Gradient_wvvvc"]
 offsets = PackedFloat32Array(0, 0.0645161, 1)
 colors = PackedColorArray(0, 0.278431, 0.337255, 1, 0, 0.278431, 0.337255, 1, 0, 0.172549, 0.337255, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1ow06"]
-gradient = SubResource("Gradient_rydkq")
+gradient = SubResource("Gradient_wvvvc")
 width = 1920
 height = 1020
 fill_from = Vector2(0.665138, 0.793578)
