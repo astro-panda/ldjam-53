@@ -25,6 +25,5 @@ func _physics_process(delta):
 				closest_bacteria = current_bac
 		
 		global_rotation = global_position.angle_to_point(closest_bacteria.global_position) + 1.5708
-		print(global_rotation)
 	else:
 		$Arrow.visible = false
