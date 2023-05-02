@@ -29,6 +29,7 @@ func _on_colony_timer_timeout():
 	createBacterium()
 
 func destroy_colony():
+	self.set_collision_layer_value(1, false)
 	process_priority = 0
 	colony_ded = true
 	$ColonyAnimation.hide()

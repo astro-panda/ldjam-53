@@ -22,10 +22,7 @@ func _process(delta):
 
 func createColony():
 	if colony_generation <= colony_max_generations:
-		var child_count = 0
-		for child in $Colonies.get_children():
-			if child.process_priority != 0:
-				child_count += 1
+		var child_count = $Colonies.get_children().size()
 		if child_count < colony_max_on_screen:
 			colony_generation += 1
 			var colony = colonyScene.instantiate()

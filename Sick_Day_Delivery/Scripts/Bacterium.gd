@@ -39,6 +39,7 @@ func _on_death_timer_timeout():
 	queue_free()
 	
 func destroy_bacteria():
+	self.set_collision_layer_value(1, false)
 	await $MobAudioController.act(randi() % 4)
 	emit_signal("on_enemy_ded")
 	$DeathTimer.start()
