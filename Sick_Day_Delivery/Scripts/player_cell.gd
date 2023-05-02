@@ -30,7 +30,6 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if(collision.get_collider().has_method("destroy_bacteria")):
-			print_debug(collision.get_collider().name)
 			collision.get_collider().destroy_bacteria()
 			$Dooting.play()
 
